@@ -28,51 +28,72 @@ function HomePage() {
   return (
     <>
       {/* HERO */}
-      <SectionShell className="!py-12 md:!py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center min-h-[calc(100vh-180px)]">
-          <div className="lg:col-span-7 flex flex-col justify-center items-start space-y-6 md:space-y-8 max-w-[640px]">
-            <Reveal>
-              <p className="text-xs md:text-sm tracking-[0.36em] uppercase text-[#C5A267] font-semibold">
-                Vancouver · West Vancouver · Lower Mainland
-              </p>
-            </Reveal>
-            <Reveal delay={120}>
-              <h1
-                className="font-serif text-[#FDFCFB] leading-[1.05] font-normal"
-                style={{ fontSize: "clamp(2.5rem, 6vw, 4.75rem)" }}
-              >
-                Strategic Asset{" "}
-                <em className="italic font-normal text-[#C5A267]">Marketing.</em>{" "}
-                Data-Driven Execution.
-              </h1>
-            </Reveal>
-            <Reveal delay={240}>
-              <p className="text-sm md:text-base text-[#FDFCFB]/70 font-sans leading-relaxed max-w-[58ch]">
-                A degree in Commerce and advanced marketing analytics means your home's
-                presentation isn't left to guesswork. We combine algorithmic demographic
-                targeting with flawless visual staging to put your property in front of
-                high-net-worth buyer pools looking to deploy capital in the Lower Mainland.
-              </p>
-            </Reveal>
-            <Reveal delay={360}>
-              <button type="button" className="cta-navy">
-                Request a Custom Property Marketing Analysis
-              </button>
-            </Reveal>
-          </div>
+      <div className="relative min-h-[calc(100vh-80px)] overflow-hidden hero-ambient">
+        {/* Ambient orbs */}
+        <div className="hero-orb-gold" style={{ top: "10%", right: "15%" }} />
+        <div className="hero-orb-navy" style={{ bottom: "20%", left: "10%" }} />
 
-          <div className="lg:col-span-5">
-            <div className="w-full aspect-[4/5] md:max-w-[480px] mx-auto lg:ml-auto">
-              <PlaceholderFrame
-                ratio="4/5"
-                label="Executive Portraiture · Profile Container"
-                description="Polished modern executive headshot of Avi Sanan conveying corporate confidence and elite market posture against a clean architectural studio background."
-                className="h-full"
+        <SectionShell className="!py-12 md:!py-20 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center min-h-[calc(100vh-180px)]">
+            <div className="lg:col-span-7 flex flex-col justify-center items-start space-y-6 md:space-y-8 max-w-[640px]">
+              <Reveal>
+                <p className="text-xs md:text-sm tracking-[0.36em] uppercase text-[#C5A267] font-semibold">
+                  Vancouver · West Vancouver · Lower Mainland
+                </p>
+              </Reveal>
+              <Reveal delay={120}>
+                <h1
+                  className="font-serif text-[#FDFCFB] leading-[1.05] font-normal"
+                  style={{ fontSize: "clamp(2.5rem, 6vw, 4.75rem)" }}
+                >
+                  Strategic Asset{" "}
+                  <em className="italic font-normal text-[#C5A267]">Marketing.</em>{" "}
+                  Data-Driven Execution.
+                </h1>
+              </Reveal>
+              <Reveal delay={240}>
+                <p className="text-sm md:text-base text-[#FDFCFB]/70 font-sans leading-relaxed max-w-[58ch]">
+                  A degree in Commerce and advanced marketing analytics means your home's
+                  presentation isn't left to guesswork. We combine algorithmic demographic
+                  targeting with flawless visual staging to put your property in front of
+                  high-net-worth buyer pools looking to deploy capital in the Lower Mainland.
+                </p>
+              </Reveal>
+              <Reveal delay={360}>
+                <button type="button" className="cta-navy">
+                  Request a Custom Property Marketing Analysis
+                </button>
+              </Reveal>
+            </div>
+
+            <div className="lg:col-span-5 relative">
+              {/* Subtle accent glow behind frame */}
+              <div
+                className="absolute inset-0 opacity-60"
+                style={{
+                  background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(197,162,103,0.06), transparent 60%)"
+                }}
               />
+              <div className="w-full aspect-[4/5] md:max-w-[480px] mx-auto lg:ml-auto relative">
+                <div className="hero-frame-elevated h-full">
+                  <PlaceholderFrame
+                    ratio="4/5"
+                    label="Executive Portraiture · Profile Container"
+                    description="Polished modern executive headshot of Avi Sanan conveying corporate confidence and elite market posture against a clean architectural studio background."
+                    className="h-full border-0"
+                  />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </SectionShell>
+        </SectionShell>
+
+        {/* Bottom fade gradient */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none z-10"
+          style={{ background: "linear-gradient(to top, #060B13, transparent)" }}
+        />
+      </div>
 
       {/* VALUE PILLARS */}
       <SectionShell bg="muted">

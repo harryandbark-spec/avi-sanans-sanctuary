@@ -147,7 +147,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-[#050A14] text-[#FDFCFB]">
+      <body className="bg-[#060B13] text-[#FDFCFB]">
         {children}
         <Scripts />
       </body>
@@ -170,7 +170,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Navbar />
-      <main className="pt-20 pb-16 lg:pb-0 min-h-dvh bg-[#050A14]">
+      <main className="pt-20 pb-16 lg:pb-0 min-h-dvh bg-[#060B13]">
         <RouteFade>
           <Outlet />
         </RouteFade>

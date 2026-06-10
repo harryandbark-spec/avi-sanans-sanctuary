@@ -20,8 +20,8 @@ export function Navbar() {
       className={cn(
         "fixed top-0 inset-x-0 z-50 transition-all duration-500",
         scrolled
-          ? "bg-[#050A14]/85 backdrop-blur-xl border-b border-[#C5A267]/25 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)]"
-          : "bg-[#050A14]/60 backdrop-blur-md border-b border-[#C5A267]/10",
+          ? "bg-[#060B13]/85 backdrop-blur-xl border-b border-[#C5A267]/25 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.5)]"
+          : "bg-[#060B13]/60 backdrop-blur-md border-b border-[#C5A267]/10",
       )}
     >
       <div className="max-w-[1440px] mx-auto h-20 px-4 sm:px-6 lg:px-16 flex items-center justify-between gap-6">
@@ -50,7 +50,7 @@ export function Navbar() {
 
         <a
           href={SITE.phoneHref}
-          className="hidden lg:inline-flex items-center gap-2 text-[11px] tracking-[0.26em] uppercase text-[#C5A267] border border-[#C5A267]/50 px-4 py-2 hover:bg-[#C5A267] hover:text-[#050A14] transition-all min-h-11"
+          className="hidden lg:inline-flex items-center gap-2 text-[11px] tracking-[0.26em] uppercase text-[#C5A267] border border-[#C5A267]/50 px-4 py-2 hover:bg-[#C5A267] hover:text-[#060B13] transition-all min-h-11"
         >
           <Phone className="w-3.5 h-3.5" />
           {SITE.phone}
@@ -67,7 +67,7 @@ export function Navbar() {
 
       <div
         className={cn(
-          "lg:hidden overflow-hidden transition-[max-height,opacity] duration-500 bg-[#050A14]/95 backdrop-blur-xl border-t border-[#C5A267]/15",
+          "lg:hidden overflow-hidden transition-[max-height,opacity] duration-500 bg-[#060B13]/95 backdrop-blur-xl border-t border-[#C5A267]/15",
           open ? "max-h-[520px] opacity-100" : "max-h-0 opacity-0",
         )}
       >
