@@ -70,8 +70,8 @@ function NotFoundComponent() {
   return (
     <div className="flex min-h-dvh items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="font-serif text-6xl text-[#0D1B2A]">404</h1>
-        <p className="mt-4 text-sm tracking-[0.22em] uppercase text-[#0D1B2A]/60">
+        <h1 className="font-serif text-6xl text-[#FDFCFB]">404</h1>
+        <p className="mt-4 text-sm tracking-[0.22em] uppercase text-[#FDFCFB]/60">
           Page not found
         </p>
         <a href="/" className="cta-navy mt-8">Return Home</a>
@@ -90,8 +90,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-dvh items-center justify-center bg-background px-4">
       <div className="max-w-md text-center space-y-6">
-        <h1 className="font-serif text-3xl text-[#0D1B2A]">This page didn't load</h1>
-        <p className="text-sm text-[#0D1B2A]/70">Try refreshing or return home.</p>
+        <h1 className="font-serif text-3xl text-[#FDFCFB]">This page didn't load</h1>
+        <p className="text-sm text-[#FDFCFB]/70">Try refreshing or return home.</p>
         <div className="flex flex-wrap justify-center gap-3">
           <button
             onClick={() => { router.invalidate(); reset(); }}
@@ -147,7 +147,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-white text-[#0D1B2A]">
+      <body className="bg-[#0A1221] text-[#FDFCFB]">
         {children}
         <Scripts />
       </body>

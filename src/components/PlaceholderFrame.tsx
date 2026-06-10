@@ -26,7 +26,7 @@ export function PlaceholderFrame({
       role="img"
       aria-label={description}
       className={cn(
-        "w-full bg-[#F4F6F8] border border-[#0D1B2A]/10 flex flex-col justify-center items-center text-center p-6 md:p-10",
+        "w-full bg-[#070E1A] border border-[#C5A267]/10 flex flex-col justify-center items-center text-center p-6 md:p-10",
         ratioMap[ratio],
         className,
       )}
@@ -35,16 +35,16 @@ export function PlaceholderFrame({
         <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7" aria-hidden="true">
           <path
             d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z"
-            stroke="#C9A84C"
+            stroke="#C5A267"
             strokeWidth="1"
             fill="none"
           />
         </svg>
       </div>
-      <p className="text-[10px] md:text-xs font-sans tracking-[0.28em] uppercase text-[#0D1B2A]/70 font-medium">
+      <p className="text-[10px] md:text-xs font-sans tracking-[0.28em] uppercase text-[#FDFCFB]/70 font-medium">
         {label}
       </p>
-      <p className="mt-3 max-w-[28ch] text-xs md:text-sm italic font-serif text-[#0D1B2A]/50 leading-relaxed">
+      <p className="mt-3 max-w-[28ch] text-xs md:text-sm italic font-serif text-[#FDFCFB]/50 leading-relaxed">
         {description}
       </p>
     </div>

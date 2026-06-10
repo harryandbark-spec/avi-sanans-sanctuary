@@ -8,7 +8,7 @@ const BADGES = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#0D1B2A] text-white">
+    <footer className="bg-[#0A1221] text-white">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-12 pb-12 border-b border-white/10">
           {BADGES.map((b) => (
@@ -30,7 +30,7 @@ export function Footer() {
               Avi Sanan, REALTOR® · {SITE.brokerage}. Office Headquarters:{" "}
               {SITE.address.street}, {SITE.address.city}, {SITE.address.region}{" "}
               {SITE.address.postal}. Phone:{" "}
-              <a href={SITE.phoneHref} className="text-white hover:text-[#C9A84C]">
+              <a href={SITE.phoneHref} className="text-white hover:text-[#C5A267]">
                 {SITE.phone}
               </a>
               .
@@ -40,13 +40,13 @@ export function Footer() {
             </p>
           </div>
           <div className="lg:col-span-5 lg:text-right space-y-3 text-sm">
-            <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="block text-white/70 hover:text-[#C9A84C]">
+            <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="block text-white/70 hover:text-[#C5A267]">
               Instagram · {SITE.instagramHandle}
             </a>
-            <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer" className="block text-white/70 hover:text-[#C9A84C]">
+            <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer" className="block text-white/70 hover:text-[#C5A267]">
               LinkedIn · {SITE.linkedinHandle}
             </a>
-            <a href={SITE.phoneHref} className="block text-white/70 hover:text-[#C9A84C]">
+            <a href={SITE.phoneHref} className="block text-white/70 hover:text-[#C5A267]">
               Direct Line · {SITE.phone}
             </a>
           </div>

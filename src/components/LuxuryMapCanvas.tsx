@@ -17,20 +17,20 @@ export function LuxuryMapCanvas({
   const gridLines = Array.from({ length: 14 });
 
   return (
-    <div className="relative w-full h-full bg-[#F4F6F8] overflow-hidden">
+    <div className="relative w-full h-full bg-[#070E1A] overflow-hidden">
       {/* Hairline grid */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         {gridLines.map((_, i) => (
           <div
             key={`v${i}`}
-            className="absolute top-0 bottom-0 border-l border-[#0D1B2A]/5"
+            className="absolute top-0 bottom-0 border-l border-[#C5A267]/5"
             style={{ left: `${(i / gridLines.length) * 100}%` }}
           />
         ))}
         {gridLines.map((_, i) => (
           <div
             key={`h${i}`}
-            className="absolute left-0 right-0 border-t border-[#0D1B2A]/5"
+            className="absolute left-0 right-0 border-t border-[#C5A267]/5"
             style={{ top: `${(i / gridLines.length) * 100}%` }}
           />
         ))}
@@ -67,10 +67,10 @@ export function LuxuryMapCanvas({
       </svg>
 
       {/* Compass / scale labels */}
-      <div className="absolute top-5 left-5 text-[9px] tracking-[0.32em] uppercase text-[#0D1B2A]/40">
+      <div className="absolute top-5 left-5 text-[9px] tracking-[0.32em] uppercase text-[#FDFCFB]/40">
         Lower Mainland · BC
       </div>
-      <div className="absolute bottom-5 right-5 text-[9px] tracking-[0.32em] uppercase text-[#0D1B2A]/40">
+      <div className="absolute bottom-5 right-5 text-[9px] tracking-[0.32em] uppercase text-[#FDFCFB]/40">
         49.28°N · 123.12°W
       </div>
 
@@ -91,21 +91,21 @@ export function LuxuryMapCanvas({
             >
               <span
                 className={cn(
-                  "h-3 w-3 rounded-full bg-[#0D1B2A] ring-4 transition-all",
-                  active ? "ring-[#C9A84C]/60 animate-soft-pulse" : "ring-[#C9A84C]/20 animate-soft-pulse",
+                  "h-3 w-3 rounded-full bg-[#0A1221] ring-4 transition-all",
+                  active ? "ring-[#C5A267]/60 animate-soft-pulse" : "ring-[#C5A267]/20 animate-soft-pulse",
                 )}
               />
             </button>
 
             {active && (
-              <div className="absolute left-1/2 bottom-full mb-3 -translate-x-1/2 w-64 bg-white border border-[#0D1B2A]/10 p-4 z-10 animate-fade-in space-y-2">
-                <p className="text-[11px] italic font-serif text-[#0D1B2A]/60">
+              <div className="absolute left-1/2 bottom-full mb-3 -translate-x-1/2 w-64 bg-[#0A1221] border border-[#C5A267]/10 p-4 z-10 animate-fade-in space-y-2">
+                <p className="text-[11px] italic font-serif text-[#FDFCFB]/60">
                   Selected asset location
                 </p>
-                <p className="text-[11px] tracking-[0.28em] uppercase font-medium text-[#0D1B2A]">
+                <p className="text-[11px] tracking-[0.28em] uppercase font-medium text-[#FDFCFB]">
                   {p.label}
                 </p>
-                <p className="text-[10px] tracking-[0.22em] uppercase text-[#C9A84C]">
+                <p className="text-[10px] tracking-[0.22em] uppercase text-[#C5A267]">
                   Center asset in active panel →
                 </p>
               </div>
