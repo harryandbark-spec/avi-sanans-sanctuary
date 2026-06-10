@@ -43,26 +43,26 @@ export function LuxuryMapCanvas({
         className="absolute inset-0 w-full h-full"
         aria-hidden="true"
       >
-        {/* Burrard Inlet (water remains cool grey background); landmass = white */}
+        {/* Landmass — tinted vault navy with subtle gold edges */}
         <path
           d="M 0,0 L 800,0 L 800,180 C 720,200 640,240 560,235 C 480,230 420,205 340,215 C 260,225 200,260 140,265 C 90,268 40,260 0,250 Z"
-          fill="#ffffff"
-          stroke="rgba(13,27,42,0.10)"
+          fill="#0A1221"
+          stroke="rgba(197,162,103,0.30)"
           strokeWidth="1"
         />
         {/* English Bay / lower landmass */}
         <path
           d="M 0,330 C 80,320 160,335 240,345 C 320,355 400,360 500,355 C 600,350 700,360 800,365 L 800,800 L 0,800 Z"
-          fill="#ffffff"
-          stroke="rgba(13,27,42,0.10)"
+          fill="#0A1221"
+          stroke="rgba(197,162,103,0.30)"
           strokeWidth="1"
         />
         {/* coastal accent line */}
         <path
           d="M 0,330 C 80,320 160,335 240,345 C 320,355 400,360 500,355 C 600,350 700,360 800,365"
           fill="none"
-          stroke="rgba(201,168,76,0.35)"
-          strokeWidth="0.75"
+          stroke="rgba(197,162,103,0.55)"
+          strokeWidth="1"
         />
       </svg>
 
