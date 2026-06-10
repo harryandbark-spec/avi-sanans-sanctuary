@@ -147,11 +147,21 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-[#0A1221] text-[#FDFCFB]">
+      <body className="bg-[#050A14] text-[#FDFCFB]">
         {children}
         <Scripts />
       </body>
     </html>
+  );
+}
+
+function RouteFade({ children }: { children: ReactNode }) {
+  const router = useRouter();
+  const path = router.state.location.pathname;
+  return (
+    <div key={path} className="animate-route-fade">
+      {children}
+    </div>
   );
 }
 
@@ -160,8 +170,10 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Navbar />
-      <main className="pt-20 pb-16 lg:pb-0 min-h-dvh">
-        <Outlet />
+      <main className="pt-20 pb-16 lg:pb-0 min-h-dvh bg-[#050A14]">
+        <RouteFade>
+          <Outlet />
+        </RouteFade>
       </main>
       <Footer />
       <MobileStickyBar />
