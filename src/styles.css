@@ -30,8 +30,8 @@
   --color-ring: var(--ring);
   --color-gold: var(--accent);
   --color-ivory: var(--foreground);
-  --font-serif: "Playfair Display", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Outfit", system-ui, sans-serif;
 }
 
 :root {
@@ -420,6 +420,201 @@
   background: linear-gradient(135deg, rgba(10,18,33,0.5) 0%, rgba(6,11,19,0.6) 100%);
   backdrop-filter: blur(12px) saturate(1.1);
   -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1), transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+@utility reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@utility story-gold {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    background-color: #C5A267;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes softPulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes hairlineDraw {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes goldShimmer {
+  0%, 100% { box-shadow: 0 0 20px -6px rgba(197,162,103,0.25); }
+  50%      { box-shadow: 0 0 40px -4px rgba(197,162,103,0.55); }
+}
+
+@keyframes routeFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-fade-in {
+  animation: fadeIn 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility animate-soft-pulse {
+  animation: softPulse 2.4s ease-in-out infinite;
+}
+
+@utility animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@utility animate-hairline {
+  transform-origin: left;
+  animation: hairlineDraw 1100ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility animate-gold-shimmer {
+  animation: goldShimmer 3.6s ease-in-out infinite;
+}
+
+@utility animate-route-fade {
+  animation: routeFade 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@utility hero-ambient {
+  position: relative;
+  background: var(--gradient-hero);
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 40% 30% at 30% 20%, rgba(197,162,103,0.04), transparent 50%),
+      radial-gradient(ellipse 50% 40% at 80% 80%, rgba(25,55,95,0.06), transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(6,11,19,0.3) 100%);
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+@utility hero-grid-overlay {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(90deg, rgba(197,162,103,0.015) 1px, transparent 1px),
+      linear-gradient(180deg, rgba(197,162,103,0.015) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none;
+    z-index: 2;
+  }
+}
+
+@keyframes ambientFloat {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { transform: translateY(-20px) scale(1.05); opacity: 0.8; }
+}
+
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.04; transform: scale(1); }
+  50% { opacity: 0.08; transform: scale(1.1); }
+}
+
+@keyframes goldAccentPulse {
+  0%, 100% { box-shadow: 0 0 60px -10px rgba(197,162,103,0.15); }
+  50% { box-shadow: 0 0 100px -10px rgba(197,162,103,0.25); }
+}
+
+@utility hero-orb-gold {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(197,162,103,0.08) 0%, transparent 70%);
+  filter: blur(60px);
+  animation: ambientFloat 12s ease-in-out infinite;
+}
+
+@utility hero-orb-navy {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(25,55,95,0.1) 0%, transparent 70%);
+  filter: blur(80px);
+  animation: ambientFloat 15s ease-in-out infinite reverse;
+}
+
+@utility hero-frame-elevated {
+  position: relative;
+  background: linear-gradient(145deg, rgba(10,18,33,0.8) 0%, rgba(6,11,19,0.9) 100%);
+  border: 1px solid rgba(197,162,103,0.12);
+  box-shadow:
+    0 40px 80px -20px rgba(0,0,0,0.5),
+    0 0 60px -20px rgba(197,162,103,0.1),
+    inset 0 1px 0 rgba(255,255,255,0.02);
+  transition: all 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  &:hover {
+    border-color: rgba(197,162,103,0.25);
+    box-shadow:
+      0 50px 100px -20px rgba(0,0,0,0.6),
+      0 0 80px -20px rgba(197,162,103,0.15),
+      inset 0 1px 0 rgba(255,255,255,0.03);
+    transform: translateY(-4px);
+  }
+}
+
+@utility footer-glass {
+  position: relative;
+  background:
+    radial-gradient(ellipse 80% 50% at 80% 0%, rgba(197,162,103,0.06), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 20% 100%, rgba(25,55,95,0.08), transparent 50%),
+    linear-gradient(180deg, rgba(0,4,10,0.85) 0%, rgba(3,7,12,0.95) 100%);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border-top: 1px solid rgba(197,162,103,0.08);
+  box-shadow:
+    0 -40px 80px -20px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(197,162,103,0.05);
+}
+
+@utility footer-badge-glass {
+  background: linear-gradient(135deg, rgba(10,18,33,0.5) 0%, rgba(6,11,19,0.6) 100%);
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
   border: 1px solid rgba(197,162,103,0.15);
   box-shadow:
     0 8px 24px -8px rgba(0,0,0,0.3),
@@ -432,4 +627,21 @@
       0 0 20px -4px rgba(197,162,103,0.1),
       inset 0 1px 0 rgba(255,255,255,0.03);
   }
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.05); }
+}
+
+@utility animate-ken-burns {
+  animation: kenBurns 20s ease-out forwards;
+}
+
+@utility glass-panel {
+  background: rgba(10, 18, 33, 0.4);
+  backdrop-filter: blur(16px) saturate(1.2);
+  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  border: 1px solid rgba(197, 162, 103, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
