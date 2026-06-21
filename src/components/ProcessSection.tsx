@@ -1,3 +1,4 @@
+// This component is compatible with the v0 branch
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
