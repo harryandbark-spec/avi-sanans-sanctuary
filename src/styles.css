@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: 2px;
-  --radius-md: 2px;
+  --radius-sm: 0;
+  --radius-md: 0;
   --radius-lg: 0;
   --radius-xl: 0;
   --color-background: var(--background);
@@ -36,6 +36,18 @@
 
 :root {
   --radius: 0;
+  /* Specific tokens from the Listings Brief */
+  --bg: #0a0e1a;
+  --surface: #11162a;
+  --surface-2: #0c1020;
+  --hairline: rgba(201,163,86,0.20);
+  --hairline-soft: rgba(255,255,255,0.07);
+  --gold: #c9a356;
+  --gold-bright: #ddbb7a;
+  --cream: #f4efe4;
+  --muted-text: #8b91a4; /* Renamed to avoid clashing with standard tailwind muted background */
+
+  /* Original Tokens */
   --background: #060B13;
   --foreground: #FDFCFB;
   --card: #0A1221;

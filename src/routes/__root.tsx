@@ -13,6 +13,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { MobileStickyBar } from "../components/MobileStickyBar";
+import BuyerIntentForm from "@/components/BuyerIntentForm";
 
 const SITE_NAME = "Avi Sanan, REALTOR® — Sutton Group West Coast Realty";
 const SITE_DESC =
@@ -170,6 +171,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <Navbar />
+
       <main className="pt-20 pb-16 lg:pb-0 min-h-dvh bg-[#060B13]">
         <RouteFade>
           <Outlet />

@@ -13,53 +13,52 @@ export function ListingCard({
   listing,
   variant = "active",
   onSelect,
-  selected,
 }: {
   listing: Listing;
   variant?: "active" | "sold";
   onSelect?: () => void;
-  selected?: boolean;
 }) {
-  const cta = variant === "active" ? "Request Private Viewing Arrangement" : "Analyze Market Transaction Data";
-  const tag = variant === "active" ? (listing.status ?? "ACTIVE COLLECTION") : "PAST TRANSACTION";
+  const cta = "VIEW PROPERTY";
+  const tag = variant === "active" ? (listing.status ?? "ACTIVE") : "SOLD";
 
   return (
-    <article
-      className={
-        "group bg-[#0A1221] border border-[#C5A267]/10 transition-colors " +
-        (selected ? "border-[#C5A267]" : "hover:border-[#C5A267]/30")
-      }
+    <button
+      type="button"
+      onClick={onSelect}
+      aria-label={`View property details for ${listing.location}`}
+      className="group block w-full text-left bg-[var(--surface-2)] border border-[var(--hairline)] transition-colors hover:border-[var(--gold-bright)]"
     >
-      <button
-        type="button"
-        onClick={onSelect}
-        className="block w-full text-left"
-        aria-label={`Select ${listing.location}`}
-      >
+      <div className="relative">
         <PlaceholderFrame
           ratio="16/10"
-          label={`ASSET CANVAS · ${listing.region.toUpperCase()}`}
+          label={listing.region.toUpperCase()}
           description={listing.description}
-          className="border-0 border-b border-[#C5A267]/10"
+          className="border-0 border-b border-[var(--hairline)]"
         />
-      </button>
-      <div className="p-5 md:p-6 space-y-4">
-        <div className="flex items-center justify-between gap-3">
-          <h3 className="font-sans text-[11px] tracking-[0.24em] uppercase text-[#FDFCFB]">
-            {listing.location}
-          </h3>
-          <span className="text-[9px] tracking-[0.28em] uppercase text-[#C5A267]">
+        <div className="absolute top-4 right-4 bg-[var(--surface)] border border-[var(--hairline)] px-3 py-1">
+          <span className="font-sans text-[10px] tracking-widest uppercase text-[var(--gold)]">
             {tag}
           </span>
         </div>
-        <p className="text-xs md:text-sm font-light text-[#FDFCFB]/70">
-          {listing.attributes}
-        </p>
-        <p className="font-serif italic text-base text-[#FDFCFB]">Price Upon Request</p>
-        <button type="button" className="cta-navy w-full" aria-label={cta}>
-          {cta}
-        </button>
       </div>
-    </article>
+      <div className="p-5 md:p-6 space-y-4 flex flex-col justify-between h-[220px]">
+        <div>
+          <h3 className="font-sans text-[12px] tracking-[0.2em] uppercase text-[var(--cream)] mb-2">
+            {listing.location}
+          </h3>
+          <p className="text-[11px] uppercase tracking-widest text-[var(--muted-text)] font-sans">
+            {listing.attributes}
+          </p>
+        </div>
+        <div>
+          <p className="font-serif italic text-lg text-[var(--cream)] mb-4">
+            Price Upon Request
+          </p>
+          <div className="w-full inline-flex items-center justify-center bg-[var(--bg)] border border-[var(--hairline)] text-[var(--gold)] px-6 py-3 text-[10px] tracking-[0.3em] uppercase font-semibold transition-colors group-hover:bg-[var(--gold)] group-hover:text-[var(--bg)] group-hover:border-[var(--gold)]">
+            {cta}
+          </div>
+        </div>
+      </div>
+    </button>
   );
 }
