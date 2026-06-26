@@ -159,7 +159,7 @@ function BuyLeadForm({ onClose }: { onClose: () => void }) {
           <div>
             <label className="block text-sm text-[#FDFCFB]/70 mb-2">Budget</label>
             <div className="flex flex-wrap gap-2">
-              {["<$700K", "$700K–1M", "$1M–1.5M", "$1.5M+"].map((opt) => (
+              {["$1.5M–3M", "$3M–5M", "$5M–10M", "$10M+"].map((opt) => (
                 <button
                   key={opt}
                   className={`px-3 py-1 text-sm border rounded-sm transition-colors ${

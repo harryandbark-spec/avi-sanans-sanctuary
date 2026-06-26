@@ -23,14 +23,14 @@ export default function ListingsPage() {
         <div className="sticky top-20 lg:top-0 z-10 bg-[#0A1221] border-b border-[#C5A267]/10 p-6">
           <div className="flex items-center gap-2 mb-4">
             <Toggle active={mode === "active"} onClick={() => setMode("active")}>
-              Active Collections
+              Active Listings
             </Toggle>
             <Toggle active={mode === "sold"} onClick={() => setMode("sold")}>
-              Past Transactions
+              Past Sales
             </Toggle>
           </div>
           <p className="text-[10px] tracking-[0.28em] uppercase text-[#FDFCFB]/60">
-            Displaying {items.length} Signature Lower Mainland Holdings
+            Showing {items.length} homes across the Lower Mainland
           </p>
         </div>
 
@@ -51,17 +51,16 @@ export default function ListingsPage() {
 
           <div className="bg-[#0A1221] border border-[#C5A267]/10 p-6 lg:p-8 space-y-5">
             <h3 className="font-serif text-xl text-[#FDFCFB] leading-snug">
-              Looking for unlisted inventory? The premier assets in West Vancouver change hands in
-              private networks.
+              Looking for something that isn&apos;t listed? Many of the best homes change hands
+              quietly.
             </h3>
             <p className="text-xs text-[#FDFCFB]/70 leading-relaxed">
-              Through active alignment with premium brokerages and localized investment circles, Avi
-              Sanan secures private access to off-market residential holdings before they ever touch
-              the public MLS system.
+              Through local broker networks and private contacts, Avi can often surface off-market
+              homes before they appear on MLS — especially useful if you have specific requirements.
             </p>
             <IntakeForm
               schema={vaultSchema}
-              submitLabel="Query Vault"
+              submitLabel="Request Off-Market Matches"
               compactSuccess
               layout="inline"
               fields={[

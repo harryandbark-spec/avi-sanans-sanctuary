@@ -17,16 +17,6 @@ export default function ContactPage() {
   return (
     <SectionShell>
       <div className="space-y-12">
-        <div className="max-w-2xl space-y-4">
-          <p className="text-[10px] tracking-[0.32em] uppercase text-[#C5A267]">The Boardroom</p>
-          <h1
-            className="font-serif text-[#FDFCFB] leading-[1.1]"
-            style={{ fontSize: "clamp(2rem, 4.5vw, 3.5rem)" }}
-          >
-            A private channel into the practice.
-          </h1>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="space-y-8">
             <VancouverClock />
@@ -90,10 +80,10 @@ export default function ContactPage() {
           <div className="bg-[#0A1221] border border-[#C5A267]/10 p-6 md:p-10 space-y-8">
             <div className="flex border-b border-[#C5A267]/10">
               <TabBtn active={mode === "call"} onClick={() => setMode("call")}>
-                Schedule Private Call
+                Schedule a Call
               </TabBtn>
               <TabBtn active={mode === "general"} onClick={() => setMode("general")}>
-                General Portfolio Inquiry
+                General Inquiry
               </TabBtn>
             </div>
 
@@ -101,7 +91,7 @@ export default function ContactPage() {
               <IntakeForm
                 key="call"
                 schema={contactCallSchema}
-                submitLabel="Initialize Private Advisory Consultation"
+                submitLabel="Request a Consultation"
                 fields={[
                   { name: "name", label: "Full Legal Name", placeholder: "Your name" },
                   {
@@ -130,7 +120,7 @@ export default function ContactPage() {
               <IntakeForm
                 key="general"
                 schema={contactGeneralSchema}
-                submitLabel="Initialize Private Advisory Consultation"
+                submitLabel="Request a Consultation"
                 fields={[
                   { name: "name", label: "Full Legal Name", placeholder: "Your name" },
                   {

@@ -44,5 +44,27 @@ export const JSONLD = {
         addressCountry: "CA",
       },
     },
+    // Example listing skeleton — real listings should inject specific Residence/Offer objects per page
+    {
+      "@type": "Residence",
+      name: "Example Luxury Residence",
+      description:
+        "High-end residential property in the Lower Mainland. Price available on request.",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Price on request",
+        addressLocality: "Vancouver",
+        addressRegion: "BC",
+        addressCountry: "CA",
+      },
+      numberOfRooms: "Varies",
+      url: "/listings",
+      offers: {
+        "@type": "Offer",
+        price: "Price on request",
+        priceCurrency: "CAD",
+        availability: "https://schema.org/PreOrder",
+      },
+    },
   ],
 };

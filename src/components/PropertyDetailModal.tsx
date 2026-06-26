@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import { Listing } from "./ListingCard";
-import { PlaceholderFrame } from "./PlaceholderFrame";
 
 type Props = {
   open: boolean;
@@ -82,13 +81,20 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
             {/* Left Column: Gallery & Details */}
             <div className="w-full md:w-3/5 border-r border-[var(--hairline)] flex flex-col">
               {/* Main Gallery Placeholder */}
-              <div className="relative w-full aspect-[4/3] bg-[var(--surface)] border-b border-[var(--hairline)]">
-                <PlaceholderFrame
-                  ratio="4/3"
-                  label={`GALLERY: ${listing.region.toUpperCase()}`}
-                  description="Primary architectural perspective."
-                  className="border-0"
-                />
+              <div className="relative w-full aspect-[4/3] bg-[var(--surface)] border-b border-[var(--hairline)] overflow-hidden">
+                {listing.image ? (
+                  <img
+                    src={listing.image}
+                    alt={listing.region}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-[var(--surface-2)]">
+                    <span className="text-[10px] tracking-widest uppercase text-[var(--muted-text)]">
+                      {listing.region}
+                    </span>
+                  </div>
+                )}
                 <div className="absolute bottom-4 right-4 bg-[var(--surface-2)] border border-[var(--hairline)] px-3 py-1">
                   <span className="font-sans text-[10px] tracking-widest text-[var(--gold)]">
                     1 / 24 PHOTOS
@@ -98,14 +104,19 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
 
               {/* Thumbnails */}
               <div className="flex border-b border-[var(--hairline)] bg-[var(--surface-2)] h-20 overflow-hidden">
-                {[1, 2, 3, 4, 5].map((t) => (
-                  <div
-                    key={t}
-                    className="flex-1 border-r border-[var(--hairline)] opacity-50 hover:opacity-100 transition-opacity cursor-pointer"
-                  >
-                    <PlaceholderFrame ratio="16/9" label="" className="border-0 scale-110" />
-                  </div>
-                ))}
+                {[listing.image, listing.image, listing.image, listing.image, listing.image]
+                  .filter(Boolean)
+                  .slice(0, 5)
+                  .map((src, t) => (
+                    <div
+                      key={t}
+                      className="flex-1 border-r border-[var(--hairline)] opacity-50 hover:opacity-100 transition-opacity cursor-pointer overflow-hidden"
+                    >
+                      {src && (
+                        <img src={src} alt="" className="w-full h-full object-cover scale-110" />
+                      )}
+                    </div>
+                  ))}
               </div>
 
               <div className="p-8 space-y-12">
@@ -317,14 +328,18 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
               {/* Agent Inquiry */}
               <div className="border border-[var(--hairline)] p-6">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 bg-[var(--surface-2)] border border-[var(--hairline)] flex items-center justify-center">
-                    <span className="font-serif italic text-[var(--gold)]">AS</span>
+                  <div className="w-16 h-16 overflow-hidden border border-[var(--hairline)] shrink-0">
+                    <img
+                      src="/images/avi-headshot.png"
+                      alt="Avi Sanan"
+                      className="w-full h-full object-cover object-top"
+                    />
                   </div>
                   <div>
                     <p className="font-sans text-sm tracking-widest uppercase text-[var(--cream)]">
                       Avi Sanan
                     </p>
-                    <p className="text-xs text-[var(--muted-text)]">Principal Advisor</p>
+                    <p className="text-xs text-[var(--muted-text)]">Local REALTOR®</p>
                   </div>
                 </div>
                 {submittedInquiry ? (

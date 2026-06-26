@@ -1,134 +1,179 @@
 import type { Metadata } from "next";
 
-import { PlaceholderFrame } from "@/components/PlaceholderFrame";
+import { PageHero } from "@/components/PageHero";
+import { Reveal } from "@/components/Reveal";
+import { SellChecklist } from "@/components/SellChecklist";
 import { SectionShell } from "@/components/SectionShell";
 import { SellIntakeSection } from "@/components/SellIntakeSection";
+import { WarmMidSection } from "@/components/WarmMidSection";
 
 export const metadata: Metadata = {
-  title: "Sell · Asset Marketing Masterclass — Avi Sanan",
+  title: "Sell · Local Seller Advisory — Avi Sanan",
   description:
-    "Homes above $2M aren't just listed — they're engineered for the market. Demographic targeting, narrative distribution, and analytical negotiation by Avi Sanan.",
+    "Thinking of selling your home in Vancouver or the Lower Mainland? Get a private valuation and a practical marketing plan from a local REALTOR® who knows the area.",
   openGraph: {
-    title: "Sell · Asset Marketing Masterclass",
-    description: "Engineered marketing for premium Lower Mainland sellers.",
+    title: "Sell · Avi Sanan — Vancouver REALTOR®",
+    description: "Private valuations and practical seller guidance across the Lower Mainland.",
   },
 };
 
-const COLUMNS = [
+const PILLARS = [
   {
-    label: "Column A",
-    title: "Demographic Profiling & Hyper-Targeting",
-    body: "Reverse-engineering the ideal buyer profile using local economic data and tracking capital flows moving through Vancouver, Burnaby, and West Vancouver.",
+    label: "Targeting",
+    title: "Finding the Right Buyers",
+    body: "We identify who is actively looking in your area and price range, then focus outreach where it counts — local broker networks, private contacts, and targeted digital reach.",
   },
   {
-    label: "Column B",
-    title: "Narrative-Driven Digital Distribution",
-    body: "Cinematic, high-production property features deployed strategically across Instagram (@realestate.avi), targeted premium real estate networks, and high-impact digital showcases.",
+    label: "Presentation",
+    title: "Photography & Presentation",
+    body: "Professional photography and clear, honest property marketing that shows your home at its best across MLS, social, and private channels.",
   },
   {
-    label: "Column C",
-    title: "Analytical Negotiation Mechanics",
-    body: "Pricing strategy rooted in strict market analytics, positioning the asset with psychological precision to encourage competitive, high-intent interest from day one.",
+    label: "Negotiation",
+    title: "Negotiating a Good Outcome",
+    body: "We price your home accurately, review all offers with you, and negotiate to get the best result — without leaving money on the table.",
   },
 ];
 
 export default function SellPage() {
   return (
     <>
-      <SectionShell className="!py-0" bg="muted">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[calc(100vh-220px)]">
-          <div className="flex flex-col justify-center py-16 md:py-24 pr-0 lg:pr-12 space-y-6 md:space-y-8">
-            <p className="text-[10px] tracking-[0.32em] uppercase text-[#C5A267]">
-              The Asset Marketing Masterclass
-            </p>
-            <h1
-              className="font-serif text-[#FDFCFB] leading-[1.05]"
-              style={{ fontSize: "clamp(2rem, 5vw, 4rem)" }}
-            >
-              Homes Above $2M Are Not Just Listed.{" "}
-              <em className="italic">They Are Engineered for the Market.</em>
-            </h1>
-            <p className="text-sm md:text-base text-[#FDFCFB]/70 leading-relaxed max-w-[60ch]">
-              A degree in Commerce and advanced marketing analytics means your home's presentation
-              isn't left to guesswork. We combine algorithmic demographic targeting with flawless
-              visual staging to put your property in front of high-net-worth buyer pools looking to
-              deploy capital in the Lower Mainland.
-            </p>
-            <button className="cta-navy">Request a Tailored Asset Position Analysis</button>
-          </div>
-          <div className="flex items-center py-16 md:py-24 lg:pl-12">
-            <PlaceholderFrame
-              ratio="video"
-              label="West Vancouver Contemporary"
-              description="High-end architectural clean lines of an elite contemporary West Vancouver residence at golden hour."
-            />
-          </div>
+      <PageHero
+        image="/images/tile-home-worth.png"
+        alt="Well-presented home ready for sale"
+        eyebrow="Selling Your Home"
+        title={
+          <>
+            Sell with confidence.{" "}
+            <em className="italic font-normal text-[#C5A267]">
+              Get the right price, with less stress.
+            </em>
+          </>
+        }
+        description="Selling is a big decision. We make it straightforward — starting with an honest valuation, a clear plan, and hands‑on support from listing day to the moment you hand over the keys."
+      >
+        <div className="flex flex-col sm:flex-row gap-3">
+          <button className="cta-navy">Request a Free Private Valuation</button>
+          <button className="px-6 py-3 border border-[#C5A267]/60 text-[#C5A267] hover:bg-[#C5A267] hover:text-[#060B13] transition-colors text-sm uppercase tracking-widest font-semibold rounded-sm">
+            See How We Market Homes
+          </button>
         </div>
-      </SectionShell>
+      </PageHero>
 
       <SectionShell>
-        <div className="space-y-12">
-          <div className="max-w-xl space-y-4">
-            <p className="text-[10px] tracking-[0.32em] uppercase text-[#C5A267]">
-              Marketing Execution Matrix
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl text-[#FDFCFB] leading-tight">
-              Three vectors. One competitive narrative.
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 md:gap-0">
-            {COLUMNS.map((c, i) => (
-              <div
-                key={c.title}
-                className={
-                  "p-8 lg:p-10 space-y-5 " + (i > 0 ? "md:border-l md:border-[#C5A267]/40" : "")
-                }
-              >
-                <p className="text-[10px] tracking-[0.3em] uppercase text-[#C5A267]">{c.label}</p>
-                <h3 className="font-serif text-2xl text-[#FDFCFB] leading-tight">{c.title}</h3>
-                <p className="text-sm text-[#FDFCFB]/70 leading-relaxed">{c.body}</p>
+        <div className="space-y-10 md:space-y-12">
+          <Reveal>
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <div className="space-y-3">
+                <p className="text-[10px] tracking-[0.32em] uppercase text-[#C5A267]">
+                  Seller&apos;s Checklist
+                </p>
+                <h2
+                  className="font-serif text-[#FDFCFB] leading-[1.1]"
+                  style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
+                >
+                  What selling actually looks like, step by step.
+                </h2>
               </div>
-            ))}
-          </div>
-        </div>
-      </SectionShell>
+              <div className="shrink-0 bg-[#08101A] border border-[#C5A267]/15 rounded-sm px-5 py-3 text-sm text-[#FDFCFB]/70">
+                <span className="font-semibold text-[#FDFCFB]">Typical timeline: </span>
+                3–8 weeks listing to close
+              </div>
+            </div>
+          </Reveal>
 
-      <SectionShell>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          <h2
-            className="font-serif text-[#FDFCFB] leading-[1.1]"
-            style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
-          >
-            Uncompromising contractual alignment shields your equity during high-stakes transaction
-            loops.
-          </h2>
-          <p className="text-base text-[#FDFCFB]/75 leading-relaxed">
-            We don't just showcase your property to the open market — we negotiate with a strict
-            focus on corporate holdings, sophisticated tax timelines, and protective clauses. By
-            managing asset presentation with corporate professionalism, communication gaps are
-            eliminated, ensuring value is maximized throughout the escrow window.
-          </p>
+          <SellChecklist />
         </div>
       </SectionShell>
 
       <SectionShell bg="muted">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <Reveal>
+            <div className="aspect-[4/3] overflow-hidden">
+              <img
+                src="/images/listing-5.png"
+                alt="Beautifully staged home interior"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </Reveal>
+          <div className="space-y-12">
+            <Reveal delay={80}>
+              <div className="space-y-3">
+                <p className="text-[10px] tracking-[0.32em] uppercase text-[#C5A267]">
+                  How We Sell
+                </p>
+                <h2 className="font-serif text-3xl md:text-5xl text-[#FDFCFB] leading-tight">
+                  Three things we do well for every seller.
+                </h2>
+              </div>
+            </Reveal>
+
+            <div className="space-y-0">
+              {PILLARS.map((c, i) => (
+                <Reveal key={c.title} delay={120 + i * 90}>
+                  <div
+                    className={
+                      "p-6 lg:p-8 space-y-4 border-t border-[#C5A267]/15 hover:bg-[#070E1A] transition-colors"
+                    }
+                  >
+                    <p className="text-[10px] tracking-[0.3em] uppercase text-[#C5A267]">
+                      {c.label}
+                    </p>
+                    <h3 className="font-serif text-2xl text-[#FDFCFB] leading-tight">{c.title}</h3>
+                    <p className="text-sm text-[#FDFCFB]/70 leading-relaxed">{c.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </SectionShell>
+
+      <SectionShell>
+        <Reveal>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <h2
+              className="font-serif text-[#FDFCFB] leading-[1.1]"
+              style={{ fontSize: "clamp(1.75rem, 3.5vw, 3rem)" }}
+            >
+              We stay with you from listing day to the moment you hand over the keys.
+            </h2>
+            <p className="text-base text-[#FDFCFB]/75 leading-relaxed">
+              Selling involves a lot of moving parts — paperwork, showings, offers, inspections,
+              lawyers. We handle those pieces and keep you informed at every step, so there are no
+              surprises and your sale stays on track.
+            </p>
+          </div>
+        </Reveal>
+      </SectionShell>
+
+      <SectionShell bg="muted">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-4 space-y-4">
+          <Reveal className="lg:col-span-4 space-y-4">
             <p className="text-[10px] tracking-[0.32em] uppercase text-[#C5A267]">
               Private Valuation
             </p>
             <h2 className="font-serif text-3xl md:text-4xl text-[#FDFCFB] leading-tight">
-              Authorize a private valuation analysis.
+              What&apos;s your home worth?
             </h2>
             <p className="text-sm text-[#FDFCFB]/70 leading-relaxed">
-              Confidential, complimentary, and returned within 72 hours.
+              Free, confidential, and back to you within 72 hours.
             </p>
-          </div>
-          <div className="lg:col-span-8 bg-[#0A1221] border border-[#C5A267]/10 p-6 md:p-10">
+            <p className="text-sm text-[#FDFCFB]/50 leading-relaxed italic">
+              No obligation. Just a clear, honest number you can actually use.
+            </p>
+          </Reveal>
+          <Reveal
+            delay={120}
+            className="lg:col-span-8 bg-[#0A1221] border border-[#C5A267]/10 p-6 md:p-10"
+          >
             <SellIntakeSection />
-          </div>
+          </Reveal>
         </div>
       </SectionShell>
+
+      <WarmMidSection />
     </>
   );
 }

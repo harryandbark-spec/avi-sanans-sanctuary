@@ -39,10 +39,10 @@ export function LuxuryPreviewSlider() {
       <div className="flex items-end justify-between gap-6 border-b border-[var(--hairline)] pb-6">
         <div className="space-y-3">
           <p className="font-sans text-[10px] tracking-[0.32em] uppercase text-[var(--gold)]">
-            Signature Portfolio · $2M+
+            Current Listings
           </p>
           <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[var(--cream)] leading-tight max-w-xl">
-            Active luxury holdings across the Lower Mainland.
+            Homes available across the Lower Mainland.
           </h2>
         </div>
         <div className="hidden md:flex gap-4">

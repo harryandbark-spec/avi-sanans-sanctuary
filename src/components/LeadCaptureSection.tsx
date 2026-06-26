@@ -22,13 +22,13 @@ export default function LeadCaptureSection() {
         className="px-8 py-3 rounded-full border border-[#C5A267] text-[#C5A267] hover:bg-[#C5A267] hover:text-[#060B13] transition-colors text-sm uppercase tracking-widest font-semibold"
         onClick={() => open("buy")}
       >
-        Find My Home
+        Request Private Buying Consultation
       </button>
       <button
         className="px-8 py-3 rounded-full border border-[#FDFCFB]/50 text-[#FDFCFB] hover:bg-[#FDFCFB] hover:text-[#060B13] transition-colors text-sm uppercase tracking-widest font-semibold"
         onClick={() => open("sell")}
       >
-        What’s Your Home Worth
+        Request a Private Valuation
       </button>
       <LeadCaptureModal open={isModalOpen} onClose={() => setModalOpen(false)} mode={mode} />
     </section>

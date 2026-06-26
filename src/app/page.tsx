@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
 
-import { PlaceholderFrame } from "@/components/PlaceholderFrame";
 import { ProcessSection } from "@/components/ProcessSection";
 import { Reveal } from "@/components/Reveal";
 import LeadCaptureSection from "@/components/LeadCaptureSection";
 import { LuxuryPreviewSlider } from "@/components/LuxuryPreviewSlider";
 import { SectionShell } from "@/components/SectionShell";
+import { QuickStartTiles } from "@/components/QuickStartTiles";
+import { WarmMidSection } from "@/components/WarmMidSection";
 
 import "@/styles/Modal.css";
 
 export const metadata: Metadata = {
-  title: "Avi Sanan — Strategic Asset Marketing · Lower Mainland Luxury Real Estate",
+  title: "Avi Sanan — Local Real Estate Advisor · Vancouver & Lower Mainland",
   description:
-    "Boutique luxury real estate advisory for Vancouver, West Vancouver and the Lower Mainland. Strategic asset marketing engineered through analytics, executed with discretion.",
+    "Helping buyers and sellers across Vancouver, West Vancouver and the Lower Mainland. Private valuations, off‑market sourcing, and straightforward guidance from a local REALTOR®.",
   openGraph: {
-    title: "Avi Sanan — Strategic Asset Marketing",
-    description: "Vancouver luxury real estate engineered with data, executed with discretion.",
+    title: "Avi Sanan — Vancouver Real Estate Advisor",
+    description: "Local buying and selling guidance across Vancouver and the Lower Mainland.",
   },
 };
 
@@ -23,12 +24,10 @@ export default function HomePage() {
   return (
     <>
       <div className="relative min-h-screen overflow-hidden flex items-center justify-center">
-        <div
-          className="absolute inset-0 z-0 animate-ken-burns bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&q=80&w=2000')",
-          }}
+        <img
+          src="/images/listing-4.png"
+          alt="Bright modern living room in Vancouver"
+          className="absolute inset-0 w-full h-full object-cover animate-ken-burns"
         />
         <div className="absolute inset-0 z-0 bg-[#060B13]/60" />
         <SectionShell className="relative z-10 w-full">
@@ -43,20 +42,22 @@ export default function HomePage() {
                 className="font-serif text-[#FDFCFB] leading-[1.05] font-normal"
                 style={{ fontSize: "clamp(2.5rem, 6vw, 4.75rem)" }}
               >
-                Strategic Asset <em className="italic font-normal text-[#C5A267]">Marketing.</em>{" "}
-                Data-Driven Execution.
+                Helping you buy or sell the right home.
               </h1>
             </Reveal>
             <Reveal delay={240}>
               <p className="text-sm md:text-base text-[#FDFCFB]/80 font-sans leading-relaxed max-w-[58ch] mx-auto">
-                Boutique luxury advisory for Vancouver and the Lower Mainland — engineered with
-                data, executed with discretion.
+                Local advice, honest guidance, and access to off‑market homes across Vancouver and
+                the Lower Mainland.
               </p>
             </Reveal>
             <LeadCaptureSection />
           </div>
         </SectionShell>
       </div>
+
+      {/* Quick-start image tiles */}
+      <QuickStartTiles />
 
       <SectionShell>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -67,23 +68,19 @@ export default function HomePage() {
                 Avi Sanan
               </h2>
               <p className="text-sm text-[#FDFCFB]/70 font-sans leading-relaxed">
-                As a real estate advisor with a strong foundation in Commerce, Avi brings an
-                analytical and strategic approach to marketing luxury assets. His methodology goes
-                beyond aesthetics, focusing on precise market positioning and demographic targeting
-                to secure optimal outcomes for his clients.
+                Avi is a local REALTOR® serving Vancouver and the Lower Mainland. He takes time to
+                understand what each client actually needs — and works quietly and efficiently to
+                make buying or selling straightforward.
               </p>
             </div>
           </Reveal>
           <Reveal delay={150}>
-            <div className="w-full aspect-[4/5] md:max-w-[400px] mx-auto md:ml-auto relative">
-              <div className="hero-frame-elevated h-full">
-                <PlaceholderFrame
-                  ratio="4/5"
-                  label="Executive Portraiture"
-                  description="Polished modern executive headshot of Avi Sanan."
-                  className="h-full border-0"
-                />
-              </div>
+            <div className="w-full aspect-[4/5] md:max-w-[400px] mx-auto md:ml-auto overflow-hidden">
+              <img
+                src="/images/avi-headshot.png"
+                alt="Avi Sanan — Local REALTOR®"
+                className="w-full h-full object-cover object-top"
+              />
             </div>
           </Reveal>
         </div>
@@ -96,6 +93,9 @@ export default function HomePage() {
       <SectionShell>
         <LuxuryPreviewSlider />
       </SectionShell>
+
+      {/* Not sure where to start — warm mid-section */}
+      <WarmMidSection />
     </>
   );
 }

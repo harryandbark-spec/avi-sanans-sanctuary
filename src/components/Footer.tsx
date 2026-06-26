@@ -1,7 +1,7 @@
 import { SITE } from "@/lib/site";
 import { Reveal } from "./Reveal";
 
-const BADGES = ["SUTTON · WEST COAST BROKERAGE", "REALTOR® DESIGNATION", "CREA MEMBERSHIP"];
+const BADGES = ["Sutton Group — West Coast Realty", "REALTOR® Designation", "CREA Member"];
 
 export function Footer() {
   return (
@@ -42,7 +42,9 @@ export function Footer() {
             <div className="flex items-baseline gap-4">
               <div className="font-serif text-3xl tracking-[0.14em] text-[#FDFCFB]">AVI SANAN</div>
               <div className="h-px w-16 bg-[#C5A267]/60" />
-              <span className="text-[10px] tracking-[0.34em] uppercase text-[#C5A267]">Vault</span>
+              <span className="text-[10px] tracking-[0.34em] uppercase text-[#C5A267]">
+                REALTOR®
+              </span>
             </div>
             <p className="text-sm leading-relaxed text-[#FDFCFB]/70 max-w-xl">
               Avi Sanan, REALTOR® · {SITE.brokerage}. Office Headquarters: {SITE.address.street},{" "}

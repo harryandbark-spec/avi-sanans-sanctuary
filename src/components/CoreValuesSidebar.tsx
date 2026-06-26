@@ -1,18 +1,18 @@
 const VALUES = [
   {
     n: "01",
-    title: "Absolute Discretion",
-    body: "High-net-worth wealth protection, sealed channels, and unannounced transactions.",
+    title: "Honest Advice",
+    body: "Straightforward guidance at every step — no inflated numbers, no pressure tactics.",
   },
   {
     n: "02",
-    title: "Frictionless Communication",
-    body: "Direct, corporate-grade dialogue across every stage of acquisition and disposition.",
+    title: "Clear Communication",
+    body: "You always know where things stand. Quick replies, plain language, no surprises.",
   },
   {
     n: "03",
-    title: "Capital Preservation",
-    body: "Data-driven pricing structures over emotional estimates and market noise.",
+    title: "Your Best Outcome",
+    body: "Whether buying or selling, the goal is the right result for you — not the fastest transaction.",
   },
 ];
 

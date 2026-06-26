@@ -1,5 +1,3 @@
-import { PlaceholderFrame } from "./PlaceholderFrame";
-
 export type Listing = {
   id: string;
   location: string;
@@ -7,6 +5,7 @@ export type Listing = {
   attributes: string;
   description: string;
   status?: string;
+  image?: string;
 };
 
 export function ListingCard({
@@ -18,7 +17,7 @@ export function ListingCard({
   variant?: "active" | "sold";
   onSelect?: () => void;
 }) {
-  const cta = "VIEW PROPERTY";
+  const cta = "Request Details";
   const tag = variant === "active" ? (listing.status ?? "ACTIVE") : "SOLD";
 
   return (
@@ -29,12 +28,21 @@ export function ListingCard({
       className="group block w-full text-left bg-[var(--surface-2)] border border-[var(--hairline)] transition-colors hover:border-[var(--gold-bright)]"
     >
       <div className="relative">
-        <PlaceholderFrame
-          ratio="16/10"
-          label={listing.region.toUpperCase()}
-          description={listing.description}
-          className="border-0 border-b border-[var(--hairline)]"
-        />
+        <div className="relative aspect-[16/10] overflow-hidden border-b border-[var(--hairline)]">
+          {listing.image ? (
+            <img
+              src={listing.image}
+              alt={listing.region}
+              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+          ) : (
+            <div className="w-full h-full bg-[var(--surface-2)] flex items-center justify-center">
+              <span className="text-[10px] tracking-widest uppercase text-[var(--muted-text)]">
+                {listing.region.toUpperCase()}
+              </span>
+            </div>
+          )}
+        </div>
         <div className="absolute top-4 right-4 bg-[var(--surface)] border border-[var(--hairline)] px-3 py-1">
           <span className="font-sans text-[10px] tracking-widest uppercase text-[var(--gold)]">
             {tag}
@@ -51,7 +59,9 @@ export function ListingCard({
           </p>
         </div>
         <div>
-          <p className="font-serif italic text-lg text-[var(--cream)] mb-4">Price Upon Request</p>
+          <p className="font-serif italic text-lg text-[var(--cream)] mb-4">
+            Price: Available on request — inquiries welcome
+          </p>
           <div className="w-full inline-flex items-center justify-center bg-[var(--bg)] border border-[var(--hairline)] text-[var(--gold)] px-6 py-3 text-[10px] tracking-[0.3em] uppercase font-semibold transition-colors group-hover:bg-[var(--gold)] group-hover:text-[var(--bg)] group-hover:border-[var(--gold)]">
             {cta}
           </div>
