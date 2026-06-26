@@ -45,11 +45,7 @@ const Step1: React.FC<Step1Props> = ({ intent, setIntent, onNext }) => {
           Other
         </label>
       </div>
-      <button
-        className="cta-navy mt-2"
-        disabled={!intent}
-        onClick={onNext}
-      >
+      <button className="cta-navy mt-2" disabled={!intent} onClick={onNext}>
         Next
       </button>
     </div>

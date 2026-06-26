@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, type ReactNode, type FormEvent } from "react";
 import { z, type ZodSchema } from "zod";
 import { AdvisoryConfirmed } from "./AdvisoryConfirmed";
@@ -61,8 +63,8 @@ export function IntakeForm({
     layout === "stack"
       ? "flex flex-col gap-6"
       : layout === "inline"
-      ? "flex flex-col sm:flex-row gap-3 items-stretch"
-      : "grid grid-cols-1 md:grid-cols-2 gap-6";
+        ? "flex flex-col sm:flex-row gap-3 items-stretch"
+        : "grid grid-cols-1 md:grid-cols-2 gap-6";
 
   return (
     <form noValidate onSubmit={onSubmit} className={cn(className)}>
@@ -123,9 +125,7 @@ export function IntakeForm({
                 />
               )}
               {err && (
-                <p className="mt-2 text-[10px] tracking-[0.18em] uppercase text-[#9B3A3A]">
-                  {err}
-                </p>
+                <p className="mt-2 text-[10px] tracking-[0.18em] uppercase text-[#9B3A3A]">{err}</p>
               )}
             </div>
           );

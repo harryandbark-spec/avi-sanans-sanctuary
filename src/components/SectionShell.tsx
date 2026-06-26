@@ -13,19 +13,10 @@ export function SectionShell({
   as?: "section" | "div";
 }) {
   const bgClass =
-    bg === "muted"
-      ? "bg-[#070E1A]"
-      : bg === "navy"
-      ? "bg-[#0A1221] text-white"
-      : "bg-[#0A1221]";
+    bg === "muted" ? "bg-[#070E1A]" : bg === "navy" ? "bg-[#0A1221] text-white" : "bg-[#0A1221]";
   return (
     <Tag className={cn("w-full", bgClass)}>
-      <div
-        className={cn(
-          "max-w-[1440px] mx-auto py-16 md:py-28 px-4 sm:px-6 lg:px-16",
-          className,
-        )}
-      >
+      <div className={cn("max-w-[1440px] mx-auto py-16 md:py-28 px-4 sm:px-6 lg:px-16", className)}>
         {children}
       </div>
     </Tag>

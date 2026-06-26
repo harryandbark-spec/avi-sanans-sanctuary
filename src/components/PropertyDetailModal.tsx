@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { X } from "lucide-react";
@@ -93,11 +95,14 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
                   </span>
                 </div>
               </div>
-              
+
               {/* Thumbnails */}
               <div className="flex border-b border-[var(--hairline)] bg-[var(--surface-2)] h-20 overflow-hidden">
                 {[1, 2, 3, 4, 5].map((t) => (
-                  <div key={t} className="flex-1 border-r border-[var(--hairline)] opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+                  <div
+                    key={t}
+                    className="flex-1 border-r border-[var(--hairline)] opacity-50 hover:opacity-100 transition-opacity cursor-pointer"
+                  >
                     <PlaceholderFrame ratio="16/9" label="" className="border-0 scale-110" />
                   </div>
                 ))}
@@ -112,18 +117,26 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
                   <p className="font-sans text-sm tracking-widest uppercase text-[var(--gold)] mb-6">
                     {listing.region}
                   </p>
-                  
+
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 border-y border-[var(--hairline)] py-6">
                     <div>
-                      <p className="text-[10px] uppercase tracking-widest text-[var(--muted-text)] mb-1">List Price</p>
+                      <p className="text-[10px] uppercase tracking-widest text-[var(--muted-text)] mb-1">
+                        List Price
+                      </p>
                       <p className="font-serif text-xl text-[var(--cream)]">Price Upon Request</p>
                     </div>
                     <div>
-                      <p className="text-[10px] uppercase tracking-widest text-[var(--muted-text)] mb-1">Status</p>
-                      <p className="font-serif text-xl text-[var(--cream)]">{listing.status ?? "Active"}</p>
+                      <p className="text-[10px] uppercase tracking-widest text-[var(--muted-text)] mb-1">
+                        Status
+                      </p>
+                      <p className="font-serif text-xl text-[var(--cream)]">
+                        {listing.status ?? "Active"}
+                      </p>
                     </div>
                     <div className="col-span-2">
-                      <p className="text-[10px] uppercase tracking-widest text-[var(--muted-text)] mb-1">Specifications</p>
+                      <p className="text-[10px] uppercase tracking-widest text-[var(--muted-text)] mb-1">
+                        Specifications
+                      </p>
                       <p className="font-serif text-xl text-[var(--cream)]">{listing.attributes}</p>
                     </div>
                   </div>
@@ -135,7 +148,10 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
                     "{listing.description}"
                   </p>
                   <p className="mt-4 font-sans text-sm text-[var(--cream)]/70 leading-loose">
-                    A rare offering in the market, this property exemplifies modern luxury with meticulous attention to detail. The open-plan layout seamlessly integrates indoor and outdoor living spaces, perfect for entertaining. Floor-to-ceiling glazing provides abundant natural light and frames the surrounding landscape.
+                    A rare offering in the market, this property exemplifies modern luxury with
+                    meticulous attention to detail. The open-plan layout seamlessly integrates
+                    indoor and outdoor living spaces, perfect for entertaining. Floor-to-ceiling
+                    glazing provides abundant natural light and frames the surrounding landscape.
                   </p>
                 </div>
 
@@ -146,10 +162,22 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
                       Property Details
                     </h4>
                     <ul className="space-y-3 font-sans text-sm text-[var(--cream)]">
-                      <li className="flex justify-between"><span className="text-[var(--muted-text)]">Year Built</span><span>2022</span></li>
-                      <li className="flex justify-between"><span className="text-[var(--muted-text)]">Lot Size</span><span>12,450 sqft</span></li>
-                      <li className="flex justify-between"><span className="text-[var(--muted-text)]">Property Type</span><span>Single Family</span></li>
-                      <li className="flex justify-between"><span className="text-[var(--muted-text)]">Tax Amount</span><span>$14,200 (2025)</span></li>
+                      <li className="flex justify-between">
+                        <span className="text-[var(--muted-text)]">Year Built</span>
+                        <span>2022</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-[var(--muted-text)]">Lot Size</span>
+                        <span>12,450 sqft</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-[var(--muted-text)]">Property Type</span>
+                        <span>Single Family</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-[var(--muted-text)]">Tax Amount</span>
+                        <span>$14,200 (2025)</span>
+                      </li>
                     </ul>
                   </div>
                   <div>
@@ -157,10 +185,22 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
                       Construction & Systems
                     </h4>
                     <ul className="space-y-3 font-sans text-sm text-[var(--cream)]">
-                      <li className="flex justify-between"><span className="text-[var(--muted-text)]">Foundation</span><span>Poured Concrete</span></li>
-                      <li className="flex justify-between"><span className="text-[var(--muted-text)]">Heating</span><span>Radiant Floor</span></li>
-                      <li className="flex justify-between"><span className="text-[var(--muted-text)]">Cooling</span><span>Central Air</span></li>
-                      <li className="flex justify-between"><span className="text-[var(--muted-text)]">Exterior</span><span>Stone / Wood</span></li>
+                      <li className="flex justify-between">
+                        <span className="text-[var(--muted-text)]">Foundation</span>
+                        <span>Poured Concrete</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-[var(--muted-text)]">Heating</span>
+                        <span>Radiant Floor</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-[var(--muted-text)]">Cooling</span>
+                        <span>Central Air</span>
+                      </li>
+                      <li className="flex justify-between">
+                        <span className="text-[var(--muted-text)]">Exterior</span>
+                        <span>Stone / Wood</span>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -171,8 +211,18 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
                     Features & Amenities
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {["Gourmet Kitchen", "Wine Cellar", "Home Theatre", "Infinity Pool", "Smart Home Integration", "Heated Driveway"].map(amenity => (
-                      <span key={amenity} className="px-3 py-1 border border-[var(--hairline)] text-[11px] uppercase tracking-widest text-[var(--cream)]">
+                    {[
+                      "Gourmet Kitchen",
+                      "Wine Cellar",
+                      "Home Theatre",
+                      "Infinity Pool",
+                      "Smart Home Integration",
+                      "Heated Driveway",
+                    ].map((amenity) => (
+                      <span
+                        key={amenity}
+                        className="px-3 py-1 border border-[var(--hairline)] text-[11px] uppercase tracking-widest text-[var(--cream)]"
+                      >
                         {amenity}
                       </span>
                     ))}
@@ -183,33 +233,54 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
 
             {/* Right Column: Widgets */}
             <div className="w-full md:w-2/5 bg-[var(--surface)] p-8 space-y-12">
-              
               {/* Viewing Widget */}
               <div className="bg-[var(--surface-2)] border border-[var(--hairline)] p-6">
-                <h3 className="font-serif text-2xl text-[var(--cream)] mb-6">Schedule a Private Viewing</h3>
+                <h3 className="font-serif text-2xl text-[var(--cream)] mb-6">
+                  Schedule a Private Viewing
+                </h3>
                 {submittedViewing ? (
                   <div className="text-center py-8">
-                    <p className="text-[var(--gold)] font-serif italic text-xl mb-2">Request Received</p>
-                    <p className="text-sm text-[var(--muted-text)]">We will contact you shortly to confirm your appointment.</p>
+                    <p className="text-[var(--gold)] font-serif italic text-xl mb-2">
+                      Request Received
+                    </p>
+                    <p className="text-sm text-[var(--muted-text)]">
+                      We will contact you shortly to confirm your appointment.
+                    </p>
                   </div>
                 ) : (
                   <form onSubmit={handleViewingSubmit} className="space-y-6">
                     <div className="flex border border-[var(--hairline)] p-1">
-                      <button type="button" onClick={() => setViewingType("in-person")} className={`flex-1 py-2 text-[10px] tracking-widest uppercase transition-colors ${viewingType === "in-person" ? "bg-[var(--gold)] text-[var(--bg)] font-semibold" : "text-[var(--muted-text)] hover:text-[var(--cream)]"}`}>In-Person</button>
-                      <button type="button" onClick={() => setViewingType("virtual")} className={`flex-1 py-2 text-[10px] tracking-widest uppercase transition-colors ${viewingType === "virtual" ? "bg-[var(--gold)] text-[var(--bg)] font-semibold" : "text-[var(--muted-text)] hover:text-[var(--cream)]"}`}>Virtual</button>
+                      <button
+                        type="button"
+                        onClick={() => setViewingType("in-person")}
+                        className={`flex-1 py-2 text-[10px] tracking-widest uppercase transition-colors ${viewingType === "in-person" ? "bg-[var(--gold)] text-[var(--bg)] font-semibold" : "text-[var(--muted-text)] hover:text-[var(--cream)]"}`}
+                      >
+                        In-Person
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setViewingType("virtual")}
+                        className={`flex-1 py-2 text-[10px] tracking-widest uppercase transition-colors ${viewingType === "virtual" ? "bg-[var(--gold)] text-[var(--bg)] font-semibold" : "text-[var(--muted-text)] hover:text-[var(--cream)]"}`}
+                      >
+                        Virtual
+                      </button>
                     </div>
 
                     <div>
-                      <p className="text-xs text-[var(--muted-text)] mb-2 uppercase tracking-widest">Select Date</p>
+                      <p className="text-xs text-[var(--muted-text)] mb-2 uppercase tracking-widest">
+                        Select Date
+                      </p>
                       <div className="flex gap-2 overflow-x-auto pb-2">
-                        {dates.map(d => (
+                        {dates.map((d) => (
                           <button
                             key={d.index}
                             type="button"
                             onClick={() => setSelectedDate(d.index)}
                             className={`flex-none w-14 h-16 flex flex-col items-center justify-center border transition-colors ${selectedDate === d.index ? "border-[var(--gold)] bg-[var(--gold)] text-[var(--bg)]" : "border-[var(--hairline)] text-[var(--cream)] hover:border-[var(--gold-bright)]"}`}
                           >
-                            <span className="text-[10px] uppercase tracking-widest">{d.dayName}</span>
+                            <span className="text-[10px] uppercase tracking-widest">
+                              {d.dayName}
+                            </span>
                             <span className="text-lg font-serif">{d.dateNum}</span>
                           </button>
                         ))}
@@ -217,8 +288,10 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
                     </div>
 
                     <div>
-                      <p className="text-xs text-[var(--muted-text)] mb-2 uppercase tracking-widest">Time of Day</p>
-                      <select 
+                      <p className="text-xs text-[var(--muted-text)] mb-2 uppercase tracking-widest">
+                        Time of Day
+                      </p>
+                      <select
                         required
                         className="w-full bg-[var(--surface)] border border-[var(--hairline)] text-[var(--cream)] p-3 text-sm focus:outline-none focus:border-[var(--gold)]"
                         value={selectedTime}
@@ -231,7 +304,10 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
                       </select>
                     </div>
 
-                    <button type="submit" className="w-full bg-[var(--bg)] border border-[var(--hairline)] text-[var(--gold)] px-6 py-4 text-[11px] tracking-[0.3em] uppercase font-semibold transition-colors hover:bg-[var(--gold)] hover:text-[var(--bg)] hover:border-[var(--gold)]">
+                    <button
+                      type="submit"
+                      className="w-full bg-[var(--bg)] border border-[var(--hairline)] text-[var(--gold)] px-6 py-4 text-[11px] tracking-[0.3em] uppercase font-semibold transition-colors hover:bg-[var(--gold)] hover:text-[var(--bg)] hover:border-[var(--gold)]"
+                    >
                       Request Appointment
                     </button>
                   </form>
@@ -245,32 +321,55 @@ export function PropertyDetailModal({ open, onClose, listing }: Props) {
                     <span className="font-serif italic text-[var(--gold)]">AS</span>
                   </div>
                   <div>
-                    <p className="font-sans text-sm tracking-widest uppercase text-[var(--cream)]">Avi Sanan</p>
+                    <p className="font-sans text-sm tracking-widest uppercase text-[var(--cream)]">
+                      Avi Sanan
+                    </p>
                     <p className="text-xs text-[var(--muted-text)]">Principal Advisor</p>
                   </div>
                 </div>
                 {submittedInquiry ? (
                   <div className="text-center py-4">
-                    <p className="text-[var(--gold)] font-serif italic text-lg mb-1">Message Sent</p>
-                    <p className="text-xs text-[var(--muted-text)]">Avi will reach out to you directly.</p>
+                    <p className="text-[var(--gold)] font-serif italic text-lg mb-1">
+                      Message Sent
+                    </p>
+                    <p className="text-xs text-[var(--muted-text)]">
+                      Avi will reach out to you directly.
+                    </p>
                   </div>
                 ) : (
                   <form onSubmit={handleInquirySubmit} className="space-y-4">
-                    <input type="text" placeholder="Full Name" required className="w-full bg-transparent border-b border-[var(--hairline)] text-[var(--cream)] p-2 text-sm focus:outline-none focus:border-[var(--gold)]" />
-                    <input type="email" placeholder="Email Address" required className="w-full bg-transparent border-b border-[var(--hairline)] text-[var(--cream)] p-2 text-sm focus:outline-none focus:border-[var(--gold)]" />
-                    <textarea placeholder="Your Message" rows={3} required className="w-full bg-transparent border-b border-[var(--hairline)] text-[var(--cream)] p-2 text-sm focus:outline-none focus:border-[var(--gold)]"></textarea>
-                    <button type="submit" className="w-full bg-[var(--surface-2)] border border-[var(--hairline)] text-[var(--cream)] px-6 py-3 text-[10px] tracking-[0.2em] uppercase transition-colors hover:text-[var(--gold)] hover:border-[var(--gold)]">
+                    <input
+                      type="text"
+                      placeholder="Full Name"
+                      required
+                      className="w-full bg-transparent border-b border-[var(--hairline)] text-[var(--cream)] p-2 text-sm focus:outline-none focus:border-[var(--gold)]"
+                    />
+                    <input
+                      type="email"
+                      placeholder="Email Address"
+                      required
+                      className="w-full bg-transparent border-b border-[var(--hairline)] text-[var(--cream)] p-2 text-sm focus:outline-none focus:border-[var(--gold)]"
+                    />
+                    <textarea
+                      placeholder="Your Message"
+                      rows={3}
+                      required
+                      className="w-full bg-transparent border-b border-[var(--hairline)] text-[var(--cream)] p-2 text-sm focus:outline-none focus:border-[var(--gold)]"
+                    ></textarea>
+                    <button
+                      type="submit"
+                      className="w-full bg-[var(--surface-2)] border border-[var(--hairline)] text-[var(--cream)] px-6 py-3 text-[10px] tracking-[0.2em] uppercase transition-colors hover:text-[var(--gold)] hover:border-[var(--gold)]"
+                    >
                       Send Inquiry
                     </button>
                   </form>
                 )}
               </div>
-
             </div>
           </div>
         </div>
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }

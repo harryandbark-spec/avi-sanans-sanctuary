@@ -1,21 +1,26 @@
 import { SITE } from "@/lib/site";
 import { Reveal } from "./Reveal";
 
-const BADGES = [
-  "SUTTON · WEST COAST BROKERAGE",
-  "REALTOR® DESIGNATION",
-  "CREA MEMBERSHIP",
-];
+const BADGES = ["SUTTON · WEST COAST BROKERAGE", "REALTOR® DESIGNATION", "CREA MEMBERSHIP"];
 
 export function Footer() {
   return (
     <footer className="relative overflow-hidden text-[#FDFCFB] footer-glass">
       {/* top gold hairline */}
-      <div className="absolute top-0 left-0 right-0 h-px animate-hairline" style={{ background: "var(--gradient-hairline)" }} />
+      <div
+        className="absolute top-0 left-0 right-0 h-px animate-hairline"
+        style={{ background: "var(--gradient-hairline)" }}
+      />
 
       {/* soft gold orb glow */}
-      <div className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full opacity-20 blur-3xl" style={{ background: "radial-gradient(circle, rgba(197,162,103,0.5), transparent 70%)" }} />
-      <div className="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full opacity-15 blur-3xl" style={{ background: "radial-gradient(circle, rgba(25,55,95,0.6), transparent 70%)" }} />
+      <div
+        className="pointer-events-none absolute -top-32 -right-32 h-96 w-96 rounded-full opacity-20 blur-3xl"
+        style={{ background: "radial-gradient(circle, rgba(197,162,103,0.5), transparent 70%)" }}
+      />
+      <div
+        className="pointer-events-none absolute -bottom-40 -left-32 h-96 w-96 rounded-full opacity-15 blur-3xl"
+        style={{ background: "radial-gradient(circle, rgba(25,55,95,0.6), transparent 70%)" }}
+      />
 
       <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-16 py-16 md:py-24">
         <Reveal>
@@ -26,9 +31,7 @@ export function Footer() {
                 className="aspect-[5/2] flex items-center justify-center text-center px-4 footer-badge-glass"
                 style={{ animationDelay: `${i * 90}ms` }}
               >
-                <span className="text-[10px] tracking-[0.36em] uppercase text-[#C5A267]">
-                  {b}
-                </span>
+                <span className="text-[10px] tracking-[0.36em] uppercase text-[#C5A267]">{b}</span>
               </div>
             ))}
           </div>
@@ -42,10 +45,12 @@ export function Footer() {
               <span className="text-[10px] tracking-[0.34em] uppercase text-[#C5A267]">Vault</span>
             </div>
             <p className="text-sm leading-relaxed text-[#FDFCFB]/70 max-w-xl">
-              Avi Sanan, REALTOR® · {SITE.brokerage}. Office Headquarters:{" "}
-              {SITE.address.street}, {SITE.address.city}, {SITE.address.region}{" "}
-              {SITE.address.postal}. Direct line:{" "}
-              <a href={SITE.phoneHref} className="story-gold text-[#FDFCFB] hover:text-[#C5A267] transition-colors">
+              Avi Sanan, REALTOR® · {SITE.brokerage}. Office Headquarters: {SITE.address.street},{" "}
+              {SITE.address.city}, {SITE.address.region} {SITE.address.postal}. Direct line:{" "}
+              <a
+                href={SITE.phoneHref}
+                className="story-gold text-[#FDFCFB] hover:text-[#C5A267] transition-colors"
+              >
                 {SITE.phone}
               </a>
               .
@@ -56,14 +61,29 @@ export function Footer() {
           </Reveal>
 
           <Reveal delay={180} className="lg:col-span-5 lg:text-right space-y-4 text-sm">
-            <div className="text-[10px] tracking-[0.36em] uppercase text-[#C5A267]/80 mb-2">Connect</div>
-            <a href={SITE.instagram} target="_blank" rel="noopener noreferrer" className="block text-[#FDFCFB]/75 hover:text-[#C5A267] transition-colors">
+            <div className="text-[10px] tracking-[0.36em] uppercase text-[#C5A267]/80 mb-2">
+              Connect
+            </div>
+            <a
+              href={SITE.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-[#FDFCFB]/75 hover:text-[#C5A267] transition-colors"
+            >
               Instagram · {SITE.instagramHandle}
             </a>
-            <a href={SITE.linkedin} target="_blank" rel="noopener noreferrer" className="block text-[#FDFCFB]/75 hover:text-[#C5A267] transition-colors">
+            <a
+              href={SITE.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-[#FDFCFB]/75 hover:text-[#C5A267] transition-colors"
+            >
               LinkedIn · {SITE.linkedinHandle}
             </a>
-            <a href={SITE.phoneHref} className="block text-[#FDFCFB]/75 hover:text-[#C5A267] transition-colors">
+            <a
+              href={SITE.phoneHref}
+              className="block text-[#FDFCFB]/75 hover:text-[#C5A267] transition-colors"
+            >
               Direct Line · {SITE.phone}
             </a>
           </Reveal>

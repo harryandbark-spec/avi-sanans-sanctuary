@@ -1,6 +1,7 @@
+"use client";
+
 import { useMemo, useState } from "react";
-import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+
 import { ListingCard } from "@/components/ListingCard";
 import { IntakeForm } from "@/components/IntakeForm";
 import { PropertyDetailModal } from "@/components/PropertyDetailModal";
@@ -8,36 +9,16 @@ import { vaultSchema } from "@/lib/schemas";
 import { ACTIVE_LISTINGS, PAST_LISTINGS } from "@/lib/listings";
 import { cn } from "@/lib/utils";
 
-export const Route = createFileRoute("/listings")({
-  head: () => ({
-    meta: [
-      { title: "Portfolio · Active Lower Mainland Holdings — Avi Sanan" },
-      {
-        name: "description",
-        content:
-          "Signature active and past luxury holdings across West Vancouver, Vancouver, and Coquitlam. Price upon request.",
-      },
-      { property: "og:title", content: "Signature Portfolio — Avi Sanan" },
-      { property: "og:description", content: "Active and historical luxury transactions across the Lower Mainland." },
-    ],
-  }),
-  component: ListingsPage,
-});
-
 type Mode = "active" | "sold";
 
-function ListingsPage() {
+export default function ListingsPage() {
   const [mode, setMode] = useState<Mode>("active");
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  const items = useMemo(
-    () => (mode === "active" ? ACTIVE_LISTINGS : PAST_LISTINGS),
-    [mode],
-  );
+  const items = useMemo(() => (mode === "active" ? ACTIVE_LISTINGS : PAST_LISTINGS), [mode]);
 
   return (
     <div className="flex flex-col lg:min-h-[calc(100dvh-80px)] border-t border-[var(--hairline)]">
-      {/* FULL WIDTH LISTINGS */}
       <div className="w-full flex flex-col bg-[var(--bg)]">
         <div className="sticky top-20 lg:top-0 z-10 bg-[#0A1221] border-b border-[#C5A267]/10 p-6">
           <div className="flex items-center gap-2 mb-4">
@@ -54,7 +35,10 @@ function ListingsPage() {
         </div>
 
         <div className="flex-1 p-6 space-y-12 bg-[var(--surface-2)]/30">
-          <div key={mode} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in">
+          <div
+            key={mode}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-fade-in"
+          >
             {items.map((l) => (
               <ListingCard
                 key={l.id}
@@ -65,16 +49,15 @@ function ListingsPage() {
             ))}
           </div>
 
-          {/* OFF-MARKET VAULT */}
           <div className="bg-[#0A1221] border border-[#C5A267]/10 p-6 lg:p-8 space-y-5">
             <h3 className="font-serif text-xl text-[#FDFCFB] leading-snug">
-              Looking for unlisted inventory? The premier assets in West Vancouver change
-              hands in private networks.
+              Looking for unlisted inventory? The premier assets in West Vancouver change hands in
+              private networks.
             </h3>
             <p className="text-xs text-[#FDFCFB]/70 leading-relaxed">
-              Through active alignment with premium brokerages and localized investment
-              circles, Avi Sanan secures private access to off-market residential holdings
-              before they ever touch the public MLS system.
+              Through active alignment with premium brokerages and localized investment circles, Avi
+              Sanan secures private access to off-market residential holdings before they ever touch
+              the public MLS system.
             </p>
             <IntakeForm
               schema={vaultSchema}
@@ -92,12 +75,11 @@ function ListingsPage() {
           </div>
         </div>
       </div>
-      
-      {/* Property Modal */}
+
       <PropertyDetailModal
         open={!!selectedId}
         onClose={() => setSelectedId(null)}
-        listing={items.find(l => l.id === selectedId) || null}
+        listing={items.find((l) => l.id === selectedId) || null}
       />
     </div>
   );

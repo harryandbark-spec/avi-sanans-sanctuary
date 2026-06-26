@@ -92,7 +92,9 @@ export function LuxuryMapCanvas({
               <span
                 className={cn(
                   "h-3 w-3 rounded-full bg-[#0A1221] ring-4 transition-all",
-                  active ? "ring-[#C5A267]/60 animate-soft-pulse" : "ring-[#C5A267]/20 animate-soft-pulse",
+                  active
+                    ? "ring-[#C5A267]/60 animate-soft-pulse"
+                    : "ring-[#C5A267]/20 animate-soft-pulse",
                 )}
               />
             </button>

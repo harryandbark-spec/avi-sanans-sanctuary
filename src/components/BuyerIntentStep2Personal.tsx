@@ -18,7 +18,12 @@ const Step2Personal: React.FC<Step2PersonalProps> = ({ data, setData, onNext, on
       <h2 className="text-xl mb-4 text-[#FDFCFB]">Personal Residence Details</h2>
       <div className="mb-4">
         <label className="block mb-2 text-[#C5A267]">Timeline</label>
-        <select name="timeline" value={data.timeline} onChange={handleChange} className="w-full p-2 bg-[#0a1018] text-[#FDFCFB]">
+        <select
+          name="timeline"
+          value={data.timeline}
+          onChange={handleChange}
+          className="w-full p-2 bg-[#0a1018] text-[#FDFCFB]"
+        >
           <option value="">Select timeline</option>
           {timelines.map((t) => (
             <option key={t} value={t}>

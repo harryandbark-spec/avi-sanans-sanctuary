@@ -1,7 +1,11 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import "../styles/Modal.css";
 import { X } from "lucide-react";
+
+import { AdvisoryConfirmed } from "./AdvisoryConfirmed";
 
 type Props = {
   open: boolean;
@@ -32,7 +36,7 @@ export default function LeadCaptureModal({ open, onClose, mode }: Props) {
         </div>
       </div>
     </div>,
-    document.body
+    document.body,
   );
 }
 
@@ -48,9 +52,14 @@ function BuyLeadForm({ onClose }: { onClose: () => void }) {
   const [name, setName] = useState("");
   const [method, setMethod] = useState("");
   const [contactDetail, setContactDetail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleNext = () => setStep(step + 1);
   const handleBack = () => setStep(step - 1);
+
+  if (submitted) {
+    return <AdvisoryConfirmed compact />;
+  }
 
   if (step === 1) {
     return (
@@ -62,7 +71,9 @@ function BuyLeadForm({ onClose }: { onClose: () => void }) {
             <button
               key={opt}
               className={`p-3 border text-left rounded-sm transition-colors ${
-                purpose === opt ? "border-[#C5A267] bg-[#C5A267]/10" : "border-[#FDFCFB]/20 hover:border-[#FDFCFB]/40"
+                purpose === opt
+                  ? "border-[#C5A267] bg-[#C5A267]/10"
+                  : "border-[#FDFCFB]/20 hover:border-[#FDFCFB]/40"
               } text-[#FDFCFB]`}
               onClick={() => {
                 setPurpose(opt);
@@ -90,8 +101,14 @@ function BuyLeadForm({ onClose }: { onClose: () => void }) {
             placeholder="Type your requirements here..."
           />
           <div className="flex justify-between pt-4">
-            <button className="text-sm text-[#FDFCFB]/70 hover:text-[#FDFCFB]" onClick={handleBack}>Back</button>
-            <button className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold" onClick={handleNext} disabled={!otherText}>
+            <button className="text-sm text-[#FDFCFB]/70 hover:text-[#FDFCFB]" onClick={handleBack}>
+              Back
+            </button>
+            <button
+              className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold"
+              onClick={handleNext}
+              disabled={!otherText}
+            >
               Next
             </button>
           </div>
@@ -110,7 +127,9 @@ function BuyLeadForm({ onClose }: { onClose: () => void }) {
                 <button
                   key={opt}
                   className={`px-3 py-1 text-sm border rounded-sm transition-colors ${
-                    area === opt ? "border-[#C5A267] bg-[#C5A267]/10 text-[#C5A267]" : "border-[#FDFCFB]/20 text-[#FDFCFB]/70 hover:border-[#FDFCFB]/40"
+                    area === opt
+                      ? "border-[#C5A267] bg-[#C5A267]/10 text-[#C5A267]"
+                      : "border-[#FDFCFB]/20 text-[#FDFCFB]/70 hover:border-[#FDFCFB]/40"
                   }`}
                   onClick={() => setArea(opt)}
                 >
@@ -126,7 +145,9 @@ function BuyLeadForm({ onClose }: { onClose: () => void }) {
                 <button
                   key={opt}
                   className={`px-3 py-1 text-sm border rounded-sm transition-colors ${
-                    type === opt ? "border-[#C5A267] bg-[#C5A267]/10 text-[#C5A267]" : "border-[#FDFCFB]/20 text-[#FDFCFB]/70 hover:border-[#FDFCFB]/40"
+                    type === opt
+                      ? "border-[#C5A267] bg-[#C5A267]/10 text-[#C5A267]"
+                      : "border-[#FDFCFB]/20 text-[#FDFCFB]/70 hover:border-[#FDFCFB]/40"
                   }`}
                   onClick={() => setType(opt)}
                 >
@@ -142,7 +163,9 @@ function BuyLeadForm({ onClose }: { onClose: () => void }) {
                 <button
                   key={opt}
                   className={`px-3 py-1 text-sm border rounded-sm transition-colors ${
-                    budget === opt ? "border-[#C5A267] bg-[#C5A267]/10 text-[#C5A267]" : "border-[#FDFCFB]/20 text-[#FDFCFB]/70 hover:border-[#FDFCFB]/40"
+                    budget === opt
+                      ? "border-[#C5A267] bg-[#C5A267]/10 text-[#C5A267]"
+                      : "border-[#FDFCFB]/20 text-[#FDFCFB]/70 hover:border-[#FDFCFB]/40"
                   }`}
                   onClick={() => setBudget(opt)}
                 >
@@ -153,8 +176,14 @@ function BuyLeadForm({ onClose }: { onClose: () => void }) {
           </div>
         </div>
         <div className="flex justify-between pt-4">
-          <button className="text-sm text-[#FDFCFB]/70 hover:text-[#FDFCFB]" onClick={handleBack}>Back</button>
-          <button className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold" onClick={handleNext} disabled={!area || !type || !budget}>
+          <button className="text-sm text-[#FDFCFB]/70 hover:text-[#FDFCFB]" onClick={handleBack}>
+            Back
+          </button>
+          <button
+            className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold"
+            onClick={handleNext}
+            disabled={!area || !type || !budget}
+          >
             Next
           </button>
         </div>
@@ -206,13 +235,12 @@ function BuyLeadForm({ onClose }: { onClose: () => void }) {
         )}
       </div>
       <div className="flex justify-between pt-4">
-        <button className="text-sm text-[#FDFCFB]/70 hover:text-[#FDFCFB]" onClick={handleBack}>Back</button>
-        <button 
-          className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold" 
-          onClick={() => {
-            alert("Lead Captured!");
-            onClose();
-          }} 
+        <button className="text-sm text-[#FDFCFB]/70 hover:text-[#FDFCFB]" onClick={handleBack}>
+          Back
+        </button>
+        <button
+          className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold"
+          onClick={() => setSubmitted(true)}
           disabled={!name || !method || !contactDetail}
         >
           Submit
@@ -233,9 +261,14 @@ function SellLeadForm({ onClose }: { onClose: () => void }) {
   const [name, setName] = useState("");
   const [method, setMethod] = useState("");
   const [contactDetail, setContactDetail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const handleNext = () => setStep(step + 1);
   const handleBack = () => setStep(step - 1);
+
+  if (submitted) {
+    return <AdvisoryConfirmed compact />;
+  }
 
   if (step === 1) {
     return (
@@ -252,7 +285,11 @@ function SellLeadForm({ onClose }: { onClose: () => void }) {
           />
         </div>
         <div className="flex justify-end pt-4">
-          <button className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold" onClick={handleNext} disabled={!address}>
+          <button
+            className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold"
+            onClick={handleNext}
+            disabled={!address}
+          >
             Next
           </button>
         </div>
@@ -272,7 +309,9 @@ function SellLeadForm({ onClose }: { onClose: () => void }) {
                 <button
                   key={opt}
                   className={`px-3 py-1 text-sm border rounded-sm transition-colors ${
-                    propertyType === opt ? "border-[#C5A267] bg-[#C5A267]/10 text-[#C5A267]" : "border-[#FDFCFB]/20 text-[#FDFCFB]/70 hover:border-[#FDFCFB]/40"
+                    propertyType === opt
+                      ? "border-[#C5A267] bg-[#C5A267]/10 text-[#C5A267]"
+                      : "border-[#FDFCFB]/20 text-[#FDFCFB]/70 hover:border-[#FDFCFB]/40"
                   }`}
                   onClick={() => setPropertyType(opt)}
                 >
@@ -284,31 +323,49 @@ function SellLeadForm({ onClose }: { onClose: () => void }) {
           <div className="flex gap-4">
             <div className="flex-1">
               <label className="block text-sm text-[#FDFCFB]/70 mb-2">Beds</label>
-              <select 
+              <select
                 className="w-full bg-transparent border-b border-[#FDFCFB]/20 py-2 text-[#FDFCFB] focus:outline-none focus:border-[#C5A267]"
                 value={beds}
                 onChange={(e) => setBeds(e.target.value)}
               >
-                <option value="" className="text-black">Select</option>
-                {[1, 2, 3, 4, "5+"].map(n => <option key={n} value={n} className="text-black">{n}</option>)}
+                <option value="" className="text-black">
+                  Select
+                </option>
+                {[1, 2, 3, 4, "5+"].map((n) => (
+                  <option key={n} value={n} className="text-black">
+                    {n}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="flex-1">
               <label className="block text-sm text-[#FDFCFB]/70 mb-2">Baths</label>
-              <select 
+              <select
                 className="w-full bg-transparent border-b border-[#FDFCFB]/20 py-2 text-[#FDFCFB] focus:outline-none focus:border-[#C5A267]"
                 value={baths}
                 onChange={(e) => setBaths(e.target.value)}
               >
-                <option value="" className="text-black">Select</option>
-                {[1, 1.5, 2, 2.5, 3, "4+"].map(n => <option key={n} value={n} className="text-black">{n}</option>)}
+                <option value="" className="text-black">
+                  Select
+                </option>
+                {[1, 1.5, 2, 2.5, 3, "4+"].map((n) => (
+                  <option key={n} value={n} className="text-black">
+                    {n}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
         </div>
         <div className="flex justify-between pt-4">
-          <button className="text-sm text-[#FDFCFB]/70 hover:text-[#FDFCFB]" onClick={handleBack}>Back</button>
-          <button className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold" onClick={handleNext} disabled={!propertyType || !beds || !baths}>
+          <button className="text-sm text-[#FDFCFB]/70 hover:text-[#FDFCFB]" onClick={handleBack}>
+            Back
+          </button>
+          <button
+            className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold"
+            onClick={handleNext}
+            disabled={!propertyType || !beds || !baths}
+          >
             Next
           </button>
         </div>
@@ -360,13 +417,12 @@ function SellLeadForm({ onClose }: { onClose: () => void }) {
         )}
       </div>
       <div className="flex justify-between pt-4">
-        <button className="text-sm text-[#FDFCFB]/70 hover:text-[#FDFCFB]" onClick={handleBack}>Back</button>
-        <button 
-          className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold" 
-          onClick={() => {
-            alert("Lead Captured!");
-            onClose();
-          }} 
+        <button className="text-sm text-[#FDFCFB]/70 hover:text-[#FDFCFB]" onClick={handleBack}>
+          Back
+        </button>
+        <button
+          className="bg-[#C5A267] text-[#060B13] px-6 py-2 rounded-sm text-sm font-semibold"
+          onClick={() => setSubmitted(true)}
           disabled={!name || !method || !contactDetail}
         >
           Submit

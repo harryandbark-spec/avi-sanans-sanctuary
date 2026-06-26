@@ -1,4 +1,5 @@
-// This component is compatible with the v0 branch
+"use client";
+
 import React, { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
@@ -6,16 +7,48 @@ import { cn } from "@/lib/utils";
 
 const steps = {
   selling: [
-    { number: "01", title: "Pricing Strategy", description: "Comparable sales across the Lower Mainland, priced on data, not guesswork." },
-    { number: "02", title: "Presentation", description: "Staging and photography tailored to your specific market segment." },
-    { number: "03", title: "Launch & Negotiation", description: "Listed on MLS, offers compared side by side, terms negotiated." },
-    { number: "04", title: "Closing", description: "Inspection, financing, and legal coordinated through to possession." },
+    {
+      number: "01",
+      title: "Pricing Strategy",
+      description: "Comparable sales across the Lower Mainland, priced on data, not guesswork.",
+    },
+    {
+      number: "02",
+      title: "Presentation",
+      description: "Staging and photography tailored to your specific market segment.",
+    },
+    {
+      number: "03",
+      title: "Launch & Negotiation",
+      description: "Listed on MLS, offers compared side by side, terms negotiated.",
+    },
+    {
+      number: "04",
+      title: "Closing",
+      description: "Inspection, financing, and legal coordinated through to possession.",
+    },
   ],
   buying: [
-    { number: "01", title: "Discovery", description: "Budget, must-haves, and financing pre-approval confirmed upfront." },
-    { number: "02", title: "Search & Viewings", description: "Full Lower Mainland access, in-person walkthroughs, comparison notes." },
-    { number: "03", title: "Offer & Negotiation", description: "Comps-backed offer strategy, negotiated on price and conditions." },
-    { number: "04", title: "Closing", description: "Inspection, financing, legal, possession, handled end to end." },
+    {
+      number: "01",
+      title: "Discovery",
+      description: "Budget, must-haves, and financing pre-approval confirmed upfront.",
+    },
+    {
+      number: "02",
+      title: "Search & Viewings",
+      description: "Full Lower Mainland access, in-person walkthroughs, comparison notes.",
+    },
+    {
+      number: "03",
+      title: "Offer & Negotiation",
+      description: "Comps-backed offer strategy, negotiated on price and conditions.",
+    },
+    {
+      number: "04",
+      title: "Closing",
+      description: "Inspection, financing, legal, possession, handled end to end.",
+    },
   ],
 };
 
@@ -86,58 +119,49 @@ export function ProcessSection() {
         </div>
 
         {/* Horizontal rule with ticks (desktop only) */}
-<div className="hidden lg:block relative mb-8">
-  <hr
-    className={cn(
-      "border-t border-[var(--hairline)] h-px w-full",
-      !reducedMotion && inView ? "animate-[ruleFill_0.8s_ease-out_forwards]" : "",
-    )}
-  />
-  {/* Progress line connecting steps */}
-  <div
-    className="absolute top-0 left-0 h-px bg-[var(--gold)]"
-    style={{
-      width: inView && !reducedMotion ? "100%" : "0",
-      transition: "width 4s ease-out",
-    }}
-  />
-  {/* Checkpoints */}
-  <div className="absolute inset-0 flex justify-between items-start">
-    {[0, 1, 2, 3].map((i) => (
-      <div key={i} className="flex flex-col items-center">
-        <span
-          className="text-[10px] uppercase text-[var(--gold)] mb-1"
-          style={{
-            opacity: inView && !reducedMotion ? 1 : 0,
-            transition: `opacity 4s ease-out ${i}s`,
-          }}
-        >
-          {i + 1}
-        </span>
-        <div
-          className="w-1.5 h-1.5 bg-[var(--hairline)] rounded-full mt-[-4px]"
-          style={{
-            opacity: inView && !reducedMotion ? 1 : 0,
-            transition: `opacity 4s ease-out ${i}s`,
-          }}
-        />
-      </div>
-    ))}
-  </div>
-</div>
-        {/* Steps Grid */}
-        <div className="mb-8 flex justify-center lg:justify-start">
-
+        <div className="hidden lg:block relative mb-8">
+          <hr
+            className={cn(
+              "border-t border-[var(--hairline)] h-px w-full",
+              !reducedMotion && inView ? "animate-[ruleFill_0.8s_ease-out_forwards]" : "",
+            )}
+          />
+          {/* Progress line connecting steps */}
+          <div
+            className="absolute top-0 left-0 h-px bg-[var(--gold)]"
+            style={{
+              width: inView && !reducedMotion ? "100%" : "0",
+              transition: "width 4s ease-out",
+            }}
+          />
+          {/* Checkpoints */}
+          <div className="absolute inset-0 flex justify-between items-start">
+            {[0, 1, 2, 3].map((i) => (
+              <div key={i} className="flex flex-col items-center">
+                <span
+                  className="text-[10px] uppercase text-[var(--gold)] mb-1"
+                  style={{
+                    opacity: inView && !reducedMotion ? 1 : 0,
+                    transition: `opacity 4s ease-out ${i}s`,
+                  }}
+                >
+                  {i + 1}
+                </span>
+                <div
+                  className="w-1.5 h-1.5 bg-[var(--hairline)] rounded-full mt-[-4px]"
+                  style={{
+                    opacity: inView && !reducedMotion ? 1 : 0,
+                    transition: `opacity 4s ease-out ${i}s`,
+                  }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
+        {/* Steps Grid */}
+        <div className="mb-8 flex justify-center lg:justify-start"></div>
         {/* Desktop (>=901px) */}
-        <div
-          className={cn(
-            "grid gap-8",
-            "lg:grid-cols-4",
-            "md:grid-cols-2",
-            "grid-cols-1",
-          )}
-        >
+        <div className={cn("grid gap-8", "lg:grid-cols-4", "md:grid-cols-2", "grid-cols-1")}>
           {currentSteps.map((step, idx) => (
             <div
               key={step.number}
@@ -157,9 +181,7 @@ export function ProcessSection() {
               <h3 className="font-serif text-lg md:text-xl lg:text-2xl text-[var(--cream)] mb-2">
                 {step.title}
               </h3>
-              <p className="text-base md:text-lg leading-relaxed max-w-xs">
-                {step.description}
-              </p>
+              <p className="text-base md:text-lg leading-relaxed max-w-xs">{step.description}</p>
             </div>
           ))}
         </div>

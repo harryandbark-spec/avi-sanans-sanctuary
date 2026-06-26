@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import LeadCaptureModal from "./LeadCaptureModal";
 
@@ -16,14 +18,14 @@ export default function LeadCaptureSection() {
 
   return (
     <section className="mt-8 flex justify-center gap-4">
-      <button 
-        className="px-8 py-3 rounded-full border border-[#C5A267] text-[#C5A267] hover:bg-[#C5A267] hover:text-[#060B13] transition-colors text-sm uppercase tracking-widest font-semibold" 
+      <button
+        className="px-8 py-3 rounded-full border border-[#C5A267] text-[#C5A267] hover:bg-[#C5A267] hover:text-[#060B13] transition-colors text-sm uppercase tracking-widest font-semibold"
         onClick={() => open("buy")}
       >
         Find My Home
       </button>
-      <button 
-        className="px-8 py-3 rounded-full border border-[#FDFCFB]/50 text-[#FDFCFB] hover:bg-[#FDFCFB] hover:text-[#060B13] transition-colors text-sm uppercase tracking-widest font-semibold" 
+      <button
+        className="px-8 py-3 rounded-full border border-[#FDFCFB]/50 text-[#FDFCFB] hover:bg-[#FDFCFB] hover:text-[#060B13] transition-colors text-sm uppercase tracking-widest font-semibold"
         onClick={() => open("sell")}
       >
         What’s Your Home Worth

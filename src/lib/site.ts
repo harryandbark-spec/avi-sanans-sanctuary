@@ -5,6 +5,7 @@ export const SITE = {
   role: "REALTOR® | Sales Representative",
   phone: "778-387-7001",
   phoneHref: "tel:778-387-7001",
+  email: "realestate.avi@gmail.com",
   whatsapp:
     "https://wa.me/17783877001?text=" +
     encodeURIComponent(

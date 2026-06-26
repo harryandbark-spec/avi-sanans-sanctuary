@@ -16,26 +16,14 @@ export function AdvisoryConfirmed({ compact = false }: { compact?: boolean }) {
           strokeLinecap="square"
         />
       </svg>
-      <h3 className={"font-serif text-[#FDFCFB] " + (compact ? "text-2xl" : "text-3xl md:text-4xl")}>
-        Transmission Secured.
+      <h3
+        className={"font-serif text-[#FDFCFB] " + (compact ? "text-2xl" : "text-3xl md:text-4xl")}
+      >
+        Inquiry Received
       </h3>
       <p className="max-w-[44ch] text-sm md:text-base text-[#FDFCFB]/70 leading-relaxed">
-        Avi Sanan will contact you directly within 180 minutes via your preferred channel.
+        Avi Sanan will respond within three hours via your preferred contact method.
       </p>
-      {!compact && (
-        <>
-          <div className="w-12 h-px bg-[#0A1221]/15" />
-          <p className="text-xs tracking-[0.22em] uppercase text-[#FDFCFB]/60">
-            While you wait
-          </p>
-          <a
-            href="#"
-            className="text-sm tracking-[0.18em] uppercase text-[#FDFCFB] border-b border-[#C5A267] pb-1 hover:text-[#C5A267]"
-          >
-            Download · Seasonal Lower Mainland Market Report →
-          </a>
-        </>
-      )}
     </div>
   );
 }

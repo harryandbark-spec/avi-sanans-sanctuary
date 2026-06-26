@@ -18,7 +18,12 @@ const Step2Investment: React.FC<Step2InvestmentProps> = ({ data, setData, onNext
       <h2 className="text-xl mb-4 text-[#FDFCFB]">Investment Property Details</h2>
       <div className="mb-4">
         <label className="block mb-2 text-[#C5A267]">Property Type</label>
-        <select name="type" value={data.type} onChange={handleChange} className="w-full p-2 bg-[#0a1018] text-[#FDFCFB]">
+        <select
+          name="type"
+          value={data.type}
+          onChange={handleChange}
+          className="w-full p-2 bg-[#0a1018] text-[#FDFCFB]"
+        >
           <option value="">Select type</option>
           {types.map((t) => (
             <option key={t} value={t}>

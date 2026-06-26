@@ -1,7 +1,12 @@
 import React from "react";
 interface Step3Props {
   contact: { method: "whatsapp" | "email"; name: string; phone?: string; email?: string };
-  setContact: (value: { method: "whatsapp" | "email"; name: string; phone?: string; email?: string }) => void;
+  setContact: (value: {
+    method: "whatsapp" | "email";
+    name: string;
+    phone?: string;
+    email?: string;
+  }) => void;
   onBack: () => void;
   onSubmit: () => void;
 }

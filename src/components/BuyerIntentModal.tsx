@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect } from "react";
 import BuyerIntentForm from "@/components/BuyerIntentForm";
 import "../styles/Modal.css";
@@ -21,8 +23,10 @@ export default function BuyerIntentModal({ open, onClose }: BuyerIntentModalProp
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <button className="modal-close" aria-label="Close form" onClick={onClose}>✕</button>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" aria-label="Close form" onClick={onClose}>
+          ✕
+        </button>
         <BuyerIntentForm />
       </div>
     </div>

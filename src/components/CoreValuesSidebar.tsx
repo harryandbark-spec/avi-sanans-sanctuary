@@ -19,9 +19,7 @@ const VALUES = [
 export function CoreValuesSidebar() {
   return (
     <aside className="lg:sticky lg:top-28 space-y-10">
-      <p className="text-[10px] tracking-[0.32em] uppercase text-[#FDFCFB]/50">
-        Core Values
-      </p>
+      <p className="text-[10px] tracking-[0.32em] uppercase text-[#FDFCFB]/50">Core Values</p>
       <ul className="space-y-8">
         {VALUES.map((v) => (
           <li key={v.n} className="space-y-2 border-l border-[#C5A267] pl-5">

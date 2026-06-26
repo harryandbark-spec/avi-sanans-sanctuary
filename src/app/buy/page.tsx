@@ -1,24 +1,18 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { SectionShell } from "@/components/SectionShell";
-import { PlaceholderFrame } from "@/components/PlaceholderFrame";
-import { IntakeForm } from "@/components/IntakeForm";
-import { buySchema } from "@/lib/schemas";
+import type { Metadata } from "next";
 
-export const Route = createFileRoute("/buy")({
-  head: () => ({
-    meta: [
-      { title: "Buy · Capital Deployment Framework — Avi Sanan" },
-      {
-        name: "description",
-        content:
-          "Sourcing premium inventory and navigating high-stakes Lower Mainland acquisitions. A data-led buying advisory for serious capital.",
-      },
-      { property: "og:title", content: "Buy · Capital Deployment Framework" },
-      { property: "og:description", content: "Off-market inventory and disciplined acquisitions across the Lower Mainland." },
-    ],
-  }),
-  component: BuyPage,
-});
+import { BuyIntakeSection } from "@/components/BuyIntakeSection";
+import { PlaceholderFrame } from "@/components/PlaceholderFrame";
+import { SectionShell } from "@/components/SectionShell";
+
+export const metadata: Metadata = {
+  title: "Buy · Capital Deployment Framework — Avi Sanan",
+  description:
+    "Sourcing premium inventory and navigating high-stakes Lower Mainland acquisitions. A data-led buying advisory for serious capital.",
+  openGraph: {
+    title: "Buy · Capital Deployment Framework",
+    description: "Off-market inventory and disciplined acquisitions across the Lower Mainland.",
+  },
+};
 
 const STEPS = [
   {
@@ -53,10 +47,9 @@ const NEIGHBORHOODS = [
   },
 ];
 
-function BuyPage() {
+export default function BuyPage() {
   return (
     <>
-      {/* HERO */}
       <SectionShell>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-3 space-y-6 md:space-y-8 max-w-[620px]">
@@ -70,10 +63,10 @@ function BuyPage() {
               Sourcing Premium Inventory. Navigating High-Stakes Acquisitions.
             </h1>
             <p className="text-sm md:text-base text-[#FDFCFB]/70 leading-relaxed">
-              In Vancouver's fast-moving upper-tier market, purchasing a home is an
-              exercise in capital preservation. Backed by a commerce degree and localized
-              market analytics, we protect our clients from over-leveraging while granting
-              access to off-market inventory and sophisticated contract structures.
+              In Vancouver's fast-moving upper-tier market, purchasing a home is an exercise in
+              capital preservation. Backed by a commerce degree and localized market analytics, we
+              protect our clients from over-leveraging while granting access to off-market inventory
+              and sophisticated contract structures.
             </p>
             <button className="cta-navy">Request a Private Buying Consultation</button>
           </div>
@@ -87,7 +80,6 @@ function BuyPage() {
         </div>
       </SectionShell>
 
-      {/* STEPS */}
       <SectionShell bg="muted">
         <div className="space-y-12 lg:space-y-16">
           <div className="max-w-xl space-y-4">
@@ -114,7 +106,6 @@ function BuyPage() {
         </div>
       </SectionShell>
 
-      {/* NEIGHBORHOODS */}
       <SectionShell>
         <div className="space-y-12">
           <div className="max-w-xl space-y-4">
@@ -140,7 +131,6 @@ function BuyPage() {
         </div>
       </SectionShell>
 
-      {/* INTAKE */}
       <SectionShell bg="muted">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           <div className="lg:col-span-4 space-y-4">
@@ -156,42 +146,7 @@ function BuyPage() {
             </p>
           </div>
           <div className="lg:col-span-8 bg-[#0A1221] border border-[#C5A267]/10 p-6 md:p-10">
-            <IntakeForm
-              schema={buySchema}
-              submitLabel="Authorize Custom Search Layout"
-              fields={[
-                { name: "name", label: "Full Name", placeholder: "Your name" },
-                {
-                  name: "location",
-                  label: "Target Location",
-                  type: "select",
-                  options: [
-                    "Vancouver",
-                    "West Vancouver",
-                    "Burnaby",
-                    "Coquitlam",
-                    "Richmond",
-                    "Surrey",
-                    "Langley",
-                  ],
-                  placeholder: "Select region",
-                },
-                {
-                  name: "capital",
-                  label: "Designated Capital Allocation",
-                  type: "select",
-                  options: ["$1.5M – $2.5M", "$2.5M – $4M", "$4M+"],
-                  placeholder: "Select bracket",
-                },
-                {
-                  name: "timeline",
-                  label: "Preferred Timeline",
-                  type: "select",
-                  options: ["Immediate", "30–60 days", "60–120 days", "Strategic / open"],
-                  placeholder: "Select timeline",
-                },
-              ]}
-            />
+            <BuyIntakeSection />
           </div>
         </div>
       </SectionShell>

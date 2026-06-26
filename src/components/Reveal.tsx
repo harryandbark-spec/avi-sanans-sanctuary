@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useRef, useState, type ReactNode, type ElementType } from "react";
 
 interface RevealProps {

@@ -1,10 +1,18 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Link } from "@tanstack/react-router";
 import { Menu, X, Phone } from "lucide-react";
 import { SITE } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
+function isNavActive(pathname: string, href: string) {
+  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+}
+
 export function Navbar() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -25,7 +33,7 @@ export function Navbar() {
       )}
     >
       <div className="max-w-[1440px] mx-auto h-20 px-4 sm:px-6 lg:px-16 flex items-center justify-between gap-6">
-        <Link to="/" className="flex flex-col leading-none group" aria-label="Avi Sanan home">
+        <Link href="/" className="flex flex-col leading-none group" aria-label="Avi Sanan home">
           <span className="font-serif text-xl md:text-2xl tracking-[0.18em] text-[#FDFCFB] group-hover:text-[#C5A267] transition-colors">
             AVI SANAN
           </span>
@@ -35,17 +43,21 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8" aria-label="Primary">
-          {SITE.nav.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className="story-gold text-[11px] tracking-[0.26em] uppercase text-[#FDFCFB]/75 hover:text-[#C5A267] transition-colors"
-              activeProps={{ className: "text-[#C5A267] border-b border-[#C5A267] pb-1" }}
-              activeOptions={{ exact: item.to === "/" }}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {SITE.nav.map((item) => {
+            const active = isNavActive(pathname, item.to);
+            return (
+              <Link
+                key={item.to}
+                href={item.to}
+                className={cn(
+                  "story-gold text-[11px] tracking-[0.26em] uppercase text-[#FDFCFB]/75 hover:text-[#C5A267] transition-colors",
+                  active && "text-[#C5A267] border-b border-[#C5A267] pb-1",
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <a
@@ -72,23 +84,23 @@ export function Navbar() {
         )}
       >
         <nav className="px-6 py-6 flex flex-col gap-1" aria-label="Mobile">
-          {SITE.nav.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              onClick={() => setOpen(false)}
-              className="text-sm tracking-[0.22em] uppercase text-[#FDFCFB]/80 py-3 border-b border-[#C5A267]/10 hover:text-[#C5A267] transition-colors"
-              activeProps={{ className: "text-[#C5A267]" }}
-              activeOptions={{ exact: item.to === "/" }}
-            >
-              {item.label}
-            </Link>
-          ))}
-          <a
-            href={SITE.phoneHref}
-            className="mt-4 cta-navy"
-            onClick={() => setOpen(false)}
-          >
+          {SITE.nav.map((item) => {
+            const active = isNavActive(pathname, item.to);
+            return (
+              <Link
+                key={item.to}
+                href={item.to}
+                onClick={() => setOpen(false)}
+                className={cn(
+                  "text-sm tracking-[0.22em] uppercase text-[#FDFCFB]/80 py-3 border-b border-[#C5A267]/10 hover:text-[#C5A267] transition-colors",
+                  active && "text-[#C5A267]",
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+          <a href={SITE.phoneHref} className="mt-4 cta-navy" onClick={() => setOpen(false)}>
             Call {SITE.phone}
           </a>
         </nav>

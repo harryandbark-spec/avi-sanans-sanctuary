@@ -51,9 +51,7 @@ export function ListingCard({
           </p>
         </div>
         <div>
-          <p className="font-serif italic text-lg text-[var(--cream)] mb-4">
-            Price Upon Request
-          </p>
+          <p className="font-serif italic text-lg text-[var(--cream)] mb-4">Price Upon Request</p>
           <div className="w-full inline-flex items-center justify-center bg-[var(--bg)] border border-[var(--hairline)] text-[var(--gold)] px-6 py-3 text-[10px] tracking-[0.3em] uppercase font-semibold transition-colors group-hover:bg-[var(--gold)] group-hover:text-[var(--bg)] group-hover:border-[var(--gold)]">
             {cta}
           </div>

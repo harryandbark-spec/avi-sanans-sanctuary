@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { ListingCard, Listing } from "./ListingCard";
@@ -65,8 +67,8 @@ export function LuxuryPreviewSlider() {
         </div>
       </div>
 
-      <div 
-        className="overflow-x-auto snap-x snap-mandatory hide-scrollbar" 
+      <div
+        className="overflow-x-auto snap-x snap-mandatory hide-scrollbar"
         ref={scrollRef}
         onScroll={checkScroll}
       >
@@ -82,10 +84,10 @@ export function LuxuryPreviewSlider() {
         </div>
       </div>
 
-      <PropertyDetailModal 
-        open={!!selectedListing} 
-        onClose={() => setSelectedListing(null)} 
-        listing={selectedListing} 
+      <PropertyDetailModal
+        open={!!selectedListing}
+        onClose={() => setSelectedListing(null)}
+        listing={selectedListing}
       />
 
       <style>{`
