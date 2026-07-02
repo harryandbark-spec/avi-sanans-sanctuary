@@ -7,6 +7,7 @@ import { LuxuryPreviewSlider } from "@/components/LuxuryPreviewSlider";
 import { SectionShell } from "@/components/SectionShell";
 import { QuickStartTiles } from "@/components/QuickStartTiles";
 import { WarmMidSection } from "@/components/WarmMidSection";
+import HeroVideo from "@/components/HeroVideo";
 
 import "@/styles/Modal.css";
 
@@ -23,38 +24,8 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <div className="relative min-h-screen overflow-hidden flex items-center justify-center">
-        <img
-          src="/images/listing-4.png"
-          alt="Bright modern living room in Vancouver"
-          className="absolute inset-0 w-full h-full object-cover animate-ken-burns"
-        />
-        <div className="absolute inset-0 z-0 bg-[#060B13]/60" />
-        <SectionShell className="relative z-10 w-full">
-          <div className="glass-panel max-w-3xl mx-auto p-10 md:p-16 text-center space-y-8 rounded-sm">
-            <Reveal>
-              <p className="text-xs md:text-sm tracking-[0.36em] uppercase text-[#C5A267] font-semibold">
-                Vancouver · West Vancouver · Lower Mainland
-              </p>
-            </Reveal>
-            <Reveal delay={120}>
-              <h1
-                className="font-serif text-[#FDFCFB] leading-[1.05] font-normal"
-                style={{ fontSize: "clamp(2.5rem, 6vw, 4.75rem)" }}
-              >
-                Helping you buy or sell the right home.
-              </h1>
-            </Reveal>
-            <Reveal delay={240}>
-              <p className="text-sm md:text-base text-[#FDFCFB]/80 font-sans leading-relaxed max-w-[58ch] mx-auto">
-                Local advice, honest guidance, and access to off‑market homes across Vancouver and
-                the Lower Mainland.
-              </p>
-            </Reveal>
-            <LeadCaptureSection />
-          </div>
-        </SectionShell>
-      </div>
+      {/* Client-side hero handles delayed overlay reveal so the person/video loads first */}
+      <HeroVideo />
 
       {/* Quick-start image tiles */}
       <QuickStartTiles />
